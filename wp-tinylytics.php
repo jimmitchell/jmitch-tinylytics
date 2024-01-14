@@ -138,44 +138,33 @@ function wp_tinylytics_add_menu_page() {
 
 // Settings page callback
 function wp_tinylytics_settings_page() {
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
+
     if ( isset( $_GET['settings-updated'] ) ) {
 		// add settings saved message with the class of "updated"
 		add_settings_error( 'tinylytics_messages', 'tinylytics_message', __( 'Settings Saved', 'wp-tinylytics' ), 'updated' );
 	}
+
     settings_errors( 'tinylytics_messages' );
 
-    $default_tab = null;
-    $tab = isset($_GET['tab']) ? $_GET['tab'] : $default_tab;
     ?>
     <div class="wrap">
         <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
-        <nav class="nav-tab-wrapper">
-            <a href="?page=wp-tinylytics" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">Settings</a>
-            <a href="?page=wp-tinylytics&tab=shortcode" class="nav-tab <?php if($tab==='shortcode'):?>nav-tab-active<?php endif; ?>">Shortcodes</a>
-            <a href="?page=wp-tinylytics&tab=support" class="nav-tab <?php if($tab==='support'):?>nav-tab-active<?php endif; ?>">Make a Donation</a>
-        </nav>
-
-        <div class="tab-content">
-        <?php switch($tab) :
-            case 'shortcode':
-                include plugin_dir_path( __FILE__ ) . '/inc/admin-shortcodes.php';
-                break;
-            case 'support':
-                include plugin_dir_path( __FILE__ ) . '/inc/admin-support.php';
-                break;
-            default:
-                include plugin_dir_path( __FILE__ ) . '/inc/admin-settings.php';
-                break;
-        endswitch; ?>
+        <div class="tiny-left-content">
+        <?php include plugin_dir_path( __FILE__ ) . '/inc/admin-settings.php'; ?>
+        </div>
+        <div class="tiny-right-content">
+        <?php include plugin_dir_path( __FILE__ ) . '/inc/admin-shortcodes.php'; ?>
+        <hr />
+        <?php include plugin_dir_path( __FILE__ ) . '/inc/admin-support.php'; ?>
         </div>
     </div>
     <?php
 }
-
 
 function wp_tinylytics_output_script() {
 
