@@ -3,13 +3,6 @@
 	font-weight: bold;
 	text-decoration: underline;
 }
-.wp-admin .tiny-left-content {
-	width: 55%;
-	display: inline-block;
-	vertical-align: top;
-}
-.wp-admin .tiny-right-content {
-	width: 44%;
-	display: inline-block;
-	vertical-align: top;
+.wp-admin .tab-content > div {
+	max-width:1100px;
 }

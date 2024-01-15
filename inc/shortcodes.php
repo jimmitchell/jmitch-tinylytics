@@ -3,7 +3,7 @@
 /*
  *
  * Shortcode options for WP Tinylytics
- * Since version 1.0.2
+ * Since version 1.0.0
  *
  */
 
@@ -36,9 +36,9 @@ function wp_tinylytics_webring_function() {
 	if ($webring) {
 		$show_avatar = $avatars ? '<img class="tinylytics_webring_avatar" src="" style="display: none"/>' : '';
 		if ($webring_label === '') {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics Web Ring">🕸️' . $show_avatar . '💍</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','wp-tinylytics' ) . '">🕸️' . $show_avatar . '💍</a></span>';
 		} else {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics Web Ring">'. $show_avatar . $webring_label . '</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','wp-tinylytics' ) . '">'. $show_avatar . $webring_label . '</a></span>';
 		}
 	}
 	return $output;
