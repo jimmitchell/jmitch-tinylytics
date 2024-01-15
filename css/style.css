@@ -1,35 +1,8 @@
-.wp-admin .form-table {
-	background: #fff;
-	border: 1px solid #c3c4c7;
-	margin-bottom: 30px;
-}
-.wp-admin .form-table th,
-.wp-admin .form-table td {
-	vertical-align: middle;
-	padding: 15px;
-	font-size: 13px;
-}
-.wp-admin .form-table td {
-	margin-bottom: 0;
-	line-height: 1.5;
-}
-.wp-admin p.section-note {
-	margin: 0;
-	margin-top: -1em;
-}
-.wp-admin hr {
-	margin: 25px 0;
-}
-.wp-admin pre {
-	background:#fff;
-	padding:20px;
-	border:1px solid #c3c4c7;
-}
-.wp-admin code {
-	background: none;
-}
-.wp-admin .warning-message{
+.wp-admin .tiny-warning-message{
 	color: crimson;
 	font-weight: bold;
 	text-decoration: underline;
+}
+.wp-admin .tab-content > div {
+	max-width:1100px;
 }
