@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Tinylytics
- * Plugin URI: https://perishablepress.com/google-analytics-plugin/
+ * Plugin URI: https://jimmitchellmedia.net/wp-tinylytics-plugin/
  * Description: A simple plugin for embedding the Tinylytics script.
  * Tags: analytics, ga, google, google analytics, tracking, statistics, stats
  * Author: Jim Mitchell
