@@ -14,83 +14,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: tinylytics-wp.php:48
+#: tinylytics.php:48
 msgid "General Settings"
 msgstr ""
 
-#: tinylytics-wp.php:49
+#: tinylytics.php:49
 msgid "Tinylytics Options"
 msgstr ""
 
-#: tinylytics-wp.php:51
+#: tinylytics.php:51
 msgid "Site ID"
 msgstr ""
 
-#: tinylytics-wp.php:52
+#: tinylytics.php:52
 msgid "Display hits?"
 msgstr ""
 
-#: tinylytics-wp.php:53
+#: tinylytics.php:53
 msgid "Link to your public stats?"
 msgstr ""
 
-#: tinylytics-wp.php:54
+#: tinylytics.php:54
 msgid "Display uptime?"
 msgstr ""
 
-#: tinylytics-wp.php:55
+#: tinylytics.php:55
 msgid "Display Kudos?"
 msgstr ""
 
-#: tinylytics-wp.php:56
+#: tinylytics.php:56
 msgid "Kudos label"
 msgstr ""
 
-#: tinylytics-wp.php:57
+#: tinylytics.php:57
 msgid "Display webring?"
 msgstr ""
 
-#: tinylytics-wp.php:58
+#: tinylytics.php:58
 msgid "Webring label"
 msgstr ""
 
-#: tinylytics-wp.php:59
+#: tinylytics.php:59
 msgid "Display webring avatars?"
 msgstr ""
 
-#: tinylytics-wp.php:60
+#: tinylytics.php:60
 msgid "Display country flags?"
 msgstr ""
 
-#: tinylytics-wp.php:96
+#: tinylytics.php:96
 msgid "Your unique site id can be found on your"
 msgstr ""
 
-#: tinylytics-wp.php:96
+#: tinylytics.php:96
 msgid "site page"
 msgstr ""
 
-#: tinylytics-wp.php:102
+#: tinylytics.php:102
 msgid "These settings enable the various tracking features of"
 msgstr ""
 
-#: tinylytics-wp.php:110
+#: tinylytics.php:110
 msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
-#: tinylytics-wp.php:118
+#: tinylytics.php:118
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: tinylytics-wp.php:126
+#: tinylytics.php:126
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: tinylytics-wp.php:202
+#: tinylytics.php:202
 msgid "Settings Saved"
 msgstr ""
 
-#: tinylytics-wp.php:285
+#: tinylytics.php:285
 msgid "Settings"
 msgstr ""
 
@@ -158,10 +158,10 @@ msgstr ""
 msgid "Making a donation gets you priority support if you need it"
 msgstr ""
 
-#: shortcodes.php:39
+#: user-shortcodes.php:39
 msgid "Web Ring"
 msgstr ""
 
-#: shortcodes.php:41
+#: user-shortcodes.php:41
 msgid "Web Ring"
 msgstr ""
