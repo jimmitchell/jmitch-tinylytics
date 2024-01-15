@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Tinylytics\n"
+"Project-Id-Version: Tinylytics\n"
 "Report-Msgid-Bugs-To: hello@jimmitchellmedia.net\n"
 "POT-Creation-Date: 2024-01-15 07:30-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -14,83 +14,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: wp-tinylytics.php:48
+#: tinylytics-wp.php:48
 msgid "General Settings"
 msgstr ""
 
-#: wp-tinylytics.php:49
+#: tinylytics-wp.php:49
 msgid "Tinylytics Options"
 msgstr ""
 
-#: wp-tinylytics.php:51
+#: tinylytics-wp.php:51
 msgid "Site ID"
 msgstr ""
 
-#: wp-tinylytics.php:52
+#: tinylytics-wp.php:52
 msgid "Display hits?"
 msgstr ""
 
-#: wp-tinylytics.php:53
+#: tinylytics-wp.php:53
 msgid "Link to your public stats?"
 msgstr ""
 
-#: wp-tinylytics.php:54
+#: tinylytics-wp.php:54
 msgid "Display uptime?"
 msgstr ""
 
-#: wp-tinylytics.php:55
+#: tinylytics-wp.php:55
 msgid "Display Kudos?"
 msgstr ""
 
-#: wp-tinylytics.php:56
+#: tinylytics-wp.php:56
 msgid "Kudos label"
 msgstr ""
 
-#: wp-tinylytics.php:57
+#: tinylytics-wp.php:57
 msgid "Display webring?"
 msgstr ""
 
-#: wp-tinylytics.php:58
+#: tinylytics-wp.php:58
 msgid "Webring label"
 msgstr ""
 
-#: wp-tinylytics.php:59
+#: tinylytics-wp.php:59
 msgid "Display webring avatars?"
 msgstr ""
 
-#: wp-tinylytics.php:60
+#: tinylytics-wp.php:60
 msgid "Display country flags?"
 msgstr ""
 
-#: wp-tinylytics.php:96
+#: tinylytics-wp.php:96
 msgid "Your unique site id can be found on your"
 msgstr ""
 
-#: wp-tinylytics.php:96
+#: tinylytics-wp.php:96
 msgid "site page"
 msgstr ""
 
-#: wp-tinylytics.php:102
+#: tinylytics-wp.php:102
 msgid "These settings enable the various tracking features of"
 msgstr ""
 
-#: wp-tinylytics.php:110
+#: tinylytics-wp.php:110
 msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
-#: wp-tinylytics.php:118
+#: tinylytics-wp.php:118
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: wp-tinylytics.php:126
+#: tinylytics-wp.php:126
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: wp-tinylytics.php:202
+#: tinylytics-wp.php:202
 msgid "Settings Saved"
 msgstr ""
 
-#: wp-tinylytics.php:285
+#: tinylytics-wp.php:285
 msgid "Settings"
 msgstr ""
 

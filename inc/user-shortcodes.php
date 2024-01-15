@@ -2,62 +2,62 @@
 
 /*
  *
- * Shortcode options for WP Tinylytics
+ * Shortcode options for Tinylytics
  * Since version 1.0.0
  *
  */
 
 // *** Kudos shortcode
-function wp_tinylytics_kudos_function() {
-	$options = get_option('wp_tinylytics_settings');
+function tinylytics_wp_kudos_function() {
+	$options = get_option('tinylytics_wp_settings');
 	$kudos = $options['display_kudos'];
 	if ($kudos) {
 		return '<button class="tinylytics_kudos" data-path="'. wp_make_link_relative(get_permalink()) .'"></button>';
 	}
 }
-add_shortcode('tinykudos','wp_tinylytics_kudos_function');
+add_shortcode('tinykudos','tinylytics_wp_kudos_function');
 
 // *** Hits shortcode
-function wp_tinylytics_hits_function() {
-	$options = get_option('wp_tinylytics_settings');
+function tinylytics_wp_hits_function() {
+	$options = get_option('tinylytics_wp_settings');
 	$hits = $options['display_hits'];
 	if ($hits) {
 		return '<span class="tinylytics_hits" data-path="'. wp_make_link_relative(get_permalink()) .'"></span>';
 	}
 }
-add_shortcode('tinyhits','wp_tinylytics_hits_function');
+add_shortcode('tinyhits','tinylytics_wp_hits_function');
 
 // *** Web ring shortcode
-function wp_tinylytics_webring_function() {
-	$options = get_option('wp_tinylytics_settings');
+function tinylytics_wp_webring_function() {
+	$options = get_option('tinylytics_wp_settings');
 	$webring = $options['display_webring'];
 	$webring_label = $options['webring_label'];
 	$avatars = $options['display_avatars'];
 	if ($webring) {
 		$show_avatar = $avatars ? '<img class="tinylytics_webring_avatar" src="" style="display: none"/>' : '';
 		if ($webring_label === '') {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','wp-tinylytics' ) . '">🕸️' . $show_avatar . '💍</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','tinylytics-wp' ) . '">🕸️' . $show_avatar . '💍</a></span>';
 		} else {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','wp-tinylytics' ) . '">'. $show_avatar . $webring_label . '</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. __( 'Web Ring','tinylytics-wp' ) . '">'. $show_avatar . $webring_label . '</a></span>';
 		}
 	}
 	return $output;
 }
-add_shortcode('tinywebring','wp_tinylytics_webring_function');
+add_shortcode('tinywebring','tinylytics_wp_webring_function');
 
 // *** Country flags shortcode
-function wp_tinylytics_flags_function() {
-	$options = get_option('wp_tinylytics_settings');
+function tinylytics_wp_flags_function() {
+	$options = get_option('tinylytics_wp_settings');
 	$flags = $options['display_flags'];
 	if ($flags) {
 		return '<p><span class="tinylytics_countries"></span></p>';
 	}
 }
-add_shortcode('tinyflags','wp_tinylytics_flags_function');
+add_shortcode('tinyflags','tinylytics_wp_flags_function');
 
 // *** Stats shortcode
-function wp_tinylytics_stats_function() {
-	$options = get_option('wp_tinylytics_settings');
+function tinylytics_wp_stats_function() {
+	$options = get_option('tinylytics_wp_settings');
 	$stats = $options['display_stats'];
 	$hits = $options['display_hits'];
 	$uptime = $options['display_uptime'];
@@ -73,6 +73,6 @@ function wp_tinylytics_stats_function() {
 	}
 	return $output;
 }
-add_shortcode('tinystats','wp_tinylytics_stats_function');
+add_shortcode('tinystats','tinylytics_wp_stats_function');
 
 ?>
