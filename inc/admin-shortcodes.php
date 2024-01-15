@@ -1,4 +1,13 @@
-<?php // Tinylytics Shortcodes tab ?>
+<?php
+
+/*
+ *
+ * Admin shortcode help for Tinylytics
+ * Since version 1.0.0
+ *
+ */
+
+?>
 
 <h2><?php _e( 'Shortcodes','tinylytics-wp' ); ?></h2>
 

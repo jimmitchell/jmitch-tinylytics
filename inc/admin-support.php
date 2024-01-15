@@ -1,4 +1,13 @@
-<?php // Tinylytics Support notice ?>
+<?php 
+
+/*
+ *
+ * Support call to action for Tinylytics
+ * Since version 1.0.0
+ *
+ */
+
+?>
 
 <h2><?php _e( 'Your Support Helps','tinylytics-wp' ); ?></h2>
 
