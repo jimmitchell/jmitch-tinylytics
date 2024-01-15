@@ -9,8 +9,8 @@ Author URI: https://jimmitchellmedia.net/
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
 Tested up to: 6.4
-Stable tag: 1.0.0
-Version:    1.0.0
+Stable tag: 1.0.1
+Version:    1.0.1
 Requires PHP: 5.6.20
 Text Domain: tinylytics-wp
 Domain Path: /languages
@@ -105,7 +105,7 @@ Tinylytics cleans up after itself. All plugin settings will be removed from your
 
 ### Like this plugin? ###
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics-wp/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
 
 
@@ -132,8 +132,8 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 
 *Thank you to everyone who shares feedback for Tinylytics!*
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics-wp/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
-**Version 1.0.0 (01-15-2024)**
+**Version 1.0.1 (01-15-2024)**
 
 * Initial release.

@@ -1,10 +1,12 @@
 <?php
+
 /*
  *
- * Shortcode options for Tinylytics
- * Since version 1.0.2
+ * Admin settings for Tinylytics
+ * Since version 1.0.0
  *
  */
+
 ?>
 	<form method="post" action="options.php">
 	<?php
