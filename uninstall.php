@@ -1,6 +1,6 @@
 <?php // delete the Tinylytics settings on uninstall...
 
-if (!defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN')) exit();
+if ( ! defined('ABSPATH') ) exit();
 
 // delete options
-delete_option('tinylytics_wp_settings');
+delete_option('jmitch_tinylytics_settings');

@@ -7,11 +7,13 @@
  *
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 ?>
 	<form method="post" action="options.php">
 	<?php
-		settings_fields('tinylytics_wp_settings_group');
-		do_settings_sections('tinylytics-wp');
+		settings_fields('jmitch_tinylytics_settings_group');
+		do_settings_sections('jmitch-tinylytics');
 		submit_button();
 		?>
 	</form>
