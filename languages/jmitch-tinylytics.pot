@@ -162,6 +162,10 @@ msgstr ""
 msgid "Making a donation gets you priority support if you need it"
 msgstr ""
 
+#: admin-support.php:18
+msgid "Support Continued Development"
+msgstr ""
+
 #: user-shortcodes.php:41
 msgid "Web Ring"
 msgstr ""
