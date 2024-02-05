@@ -166,10 +166,14 @@ msgstr ""
 msgid "Support Continued Development"
 msgstr ""
 
-#: user-shortcodes.php:41
+#: user-shortcodes.php:46
 msgid "Web Ring"
 msgstr ""
 
-#: user-shortcodes.php:43
+#: user-shortcodes.php:48
 msgid "Web Ring"
+msgstr ""
+
+#: user-shortcodes.php:75
+msgid "My Stats"
 msgstr ""

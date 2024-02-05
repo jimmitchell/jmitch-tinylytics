@@ -72,7 +72,7 @@ function jmitch_tinylytics_stats_function() {
 	$hits = $options['display_hits'];
 	$uptime = $options['display_uptime'];
 	if ($stats && $hits) {
-		$output .= '<span class="tiny_counter"><a href="" target="_blank" class="tinylytics_public_stats">My Stats</a>: <span class="tinylytics_hits"></span></span>';
+		$output .= '<span class="tiny_counter"><a href="" target="_blank" class="tinylytics_public_stats">' . esc_html__( 'My Stats','jmitch-tinylytics' ) . '</a>: <span class="tinylytics_hits"></span></span>';
 	}
 	else if ($hits) {
 		$output .= '<span class="tiny_counter"><a href="https://tinylytics.app">Tinylytics</a>: <span class="tinylytics_hits"></span></span>';
