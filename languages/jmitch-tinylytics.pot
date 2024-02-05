@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tinylytics\n"
-"Report-Msgid-Bugs-To: hello@jimmitchellmedia.net\n"
+"Report-Msgid-Bugs-To: hello@jimmitchell.org\n"
 "POT-Creation-Date: 2024-01-15 07:30-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -14,154 +14,158 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: tinylytics.php:48
+#: jmitch-tinylytics.php:48
 msgid "General Settings"
 msgstr ""
 
-#: tinylytics.php:49
+#: jmitch-tinylytics.php:49
 msgid "Tinylytics Options"
 msgstr ""
 
-#: tinylytics.php:51
+#: jmitch-tinylytics.php:51
 msgid "Site ID"
 msgstr ""
 
-#: tinylytics.php:52
+#: jmitch-tinylytics.php:52
 msgid "Display hits?"
 msgstr ""
 
-#: tinylytics.php:53
+#: jmitch-tinylytics.php:53
 msgid "Link to your public stats?"
 msgstr ""
 
-#: tinylytics.php:54
+#: jmitch-tinylytics.php:54
 msgid "Display uptime?"
 msgstr ""
 
-#: tinylytics.php:55
+#: jmitch-tinylytics.php:55
 msgid "Display Kudos?"
 msgstr ""
 
-#: tinylytics.php:56
+#: jmitch-tinylytics.php:56
 msgid "Kudos label"
 msgstr ""
 
-#: tinylytics.php:57
+#: jmitch-tinylytics.php:57
 msgid "Display webring?"
 msgstr ""
 
-#: tinylytics.php:58
+#: jmitch-tinylytics.php:58
 msgid "Webring label"
 msgstr ""
 
-#: tinylytics.php:59
+#: jmitch-tinylytics.php:59
 msgid "Display webring avatars?"
 msgstr ""
 
-#: tinylytics.php:60
+#: jmitch-tinylytics.php:60
 msgid "Display country flags?"
 msgstr ""
 
-#: tinylytics.php:96
+#: jmitch-tinylytics.php:96
 msgid "Your unique site id can be found on your"
 msgstr ""
 
-#: tinylytics.php:96
+#: jmitch-tinylytics.php:96
 msgid "site page"
 msgstr ""
 
-#: tinylytics.php:102
+#: jmitch-tinylytics.php:102
 msgid "These settings enable the various tracking features of"
 msgstr ""
 
-#: tinylytics.php:110
+#: jmitch-tinylytics.php:110
 msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
-#: tinylytics.php:118
+#: jmitch-tinylytics.php:118
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: tinylytics.php:126
+#: jmitch-tinylytics.php:126
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: tinylytics.php:202
+#: jmitch-tinylytics.php:202
 msgid "Settings Saved"
 msgstr ""
 
-#: tinylytics.php:286
+#: jmitch-tinylytics.php:212
+msgid "for"
+msgstr ""
+
+#: jmitch-tinylytics.php:295
 msgid "Settings"
 msgstr ""
 
-#: admin-shortcodes.php:12
+#: admin-shortcodes.php:14
 msgid "Shortcodes"
 msgstr ""
 
-#: admin-shortcodes.php:14
+#: admin-shortcodes.php:16
 msgid "comes comes with a variety of shortcodes which can be embedded directly in a post, page, or theme block to reduce the need for extensive HTML customizations"
 msgstr ""
 
-#: admin-shortcodes.php:17
+#: admin-shortcodes.php:19
 msgid "Displays an interactive button to track "kudos" given by readers. Best used directly in posts and pages"
 msgstr ""
 
-#: admin-shortcodes.php:18
+#: admin-shortcodes.php:20
 msgid "Displays a count of page loads of the page viewed. Best used directly in posts and pages"
 msgstr ""
 
-#: admin-shortcodes.php:19
+#: admin-shortcodes.php:21
 msgid "Displays both overall site hits and uptime (Note: a Tinylytics subscription is required to display uptime). Best used in the footer of your site"
 msgstr ""
 
-#: admin-shortcodes.php:20
+#: admin-shortcodes.php:22
 msgid "Displays a random link to a Tinylytics webring site. Enabling the \"Display webring avatars?\" option will include the avatar if the site has one. Best used in the footer of your site"
 msgstr ""
 
-#: admin-shortcodes.php:21
+#: admin-shortcodes.php:23
 msgid "Displays flags from all the countries of site visitors. Best used in the footer of your site"
 msgstr ""
 
-#: admin-shortcodes.php:24
+#: admin-shortcodes.php:26
 msgid "Learn how to use the"
 msgstr ""
 
-#: admin-shortcodes.php:24
+#: admin-shortcodes.php:26
 msgid "Shortcode Block"
 msgstr ""
 
-#: admin-shortcodes.php:24
+#: admin-shortcodes.php:26
 msgid "in your theme. More information about"
 msgstr ""
 
-#: admin-shortcodes.php:24
+#: admin-shortcodes.php:26
 msgid "options can be found in the"
 msgstr ""
 
-#: admin-shortcodes.php:24
+#: admin-shortcodes.php:26
 msgid "documentation"
 msgstr ""
 
-#: admin-support.php:12
-msgid "Your Support Helps"
+#: admin-support.php:14
+msgid "Your Support Matters"
 msgstr ""
 
-#: admin-support.php:14
+#: admin-support.php:16
 msgid "Though I freely provide this plugin to the WordPress community, consider making a small donation. A few bucks goes a long way towards making improvements"
 msgstr ""
 
-#: admin-support.php:15
+#: admin-support.php:17
 msgid "Note:"
 msgstr ""
 
-#: admin-support.php:15
+#: admin-support.php:17
 msgid "Making a donation gets you priority support if you need it"
 msgstr ""
 
-#: user-shortcodes.php:39
+#: user-shortcodes.php:41
 msgid "Web Ring"
 msgstr ""
 
-#: user-shortcodes.php:41
+#: user-shortcodes.php:43
 msgid "Web Ring"
 msgstr ""

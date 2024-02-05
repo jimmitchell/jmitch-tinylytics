@@ -1,16 +1,16 @@
 === Tinylytics – Connect Tinylytics to WordPress ===
 
 Plugin Name: Tinylytics
-Plugin URI: https://jimmitchellmedia.net/tinylytics-wp-plugin/
+Plugin URI: https://jimmitchell.org/tinylytics-wp-plugin/
 Description: Adds your Tinylytics tracking code to your WordPress site.
 Tags: analytics, tinylytics, tracking, statistics, stats, uptime
 Author: Jim Mitchell
-Author URI: https://jimmitchellmedia.net/
+Author URI: https://jimmitchell.org/
 Donate link: https://ko-fi.com/jimmitchellmedia
 Requires at least: 4.6
 Tested up to: 6.4
-Stable tag: 1.0.1
-Version:    1.0.1
+Stable tag: 1.0.2
+Version:    1.0.2
 Requires PHP: 5.6.20
 Text Domain: tinylytics-wp
 Domain Path: /languages
@@ -90,7 +90,7 @@ To upgrade Tinylytics, remove the old version and replace with the new version. 
 
 __Note:__ uninstalling the plugin from the WP Plugins screen results in the removal of all settings from the WP database. 
 
-For more information, visit the [Tinylytics Homepage](https://jimmitchellmedia.net/tinylytics-wp-plugin/).
+For more information, visit the [Tinylytics Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
 
 
 ### Restore Default Options ###
@@ -114,7 +114,7 @@ If you like Tinylytics, please take a moment to [give a 5-star rating](https://w
 1. Tinylytics: General Settings
 1. Tinylytics: Shortcodes
 
-More screenshots available at the [Tinylytics Plugin Homepage](https://jimmitchellmedia.net/tinylytics-wp-plugin/).
+More screenshots available at the [Tinylytics Plugin Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
 
 
 
@@ -124,7 +124,7 @@ To upgrade Tinylytics, remove the old version and replace with the new version. 
 
 __Note:__ uninstalling the plugin from the WP Plugins screen results in the removal of all settings from the WP database. 
 
-For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchellmedia.net/tinylytics-wp-plugin/).
+For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
 
 
 
@@ -133,6 +133,10 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.0.2 (02-04-2024)**
+
+* Updates to meet WordPress plugin submission guidelines.
 
 **Version 1.0.1 (01-15-2024)**
 
