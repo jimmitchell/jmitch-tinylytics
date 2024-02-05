@@ -301,7 +301,7 @@ function jmitch_tinylytics_settings_link( $links ) {
 	);
 	return $links;
 }
-add_filter( 'plugin_action_links_tinylytics/jmitch-tinylytics.php', 'jmitch_tinylytics_settings_link' );
+add_filter( 'plugin_action_links_jmitch-tinylytics/jmitch-tinylytics.php', 'jmitch_tinylytics_settings_link' );
 
 
 function jmitch_tinylytics_load_i18n() {
