@@ -9,7 +9,7 @@
  * Dontate link: https://ko-fi.com/jimmitchellmedia
  * Requires at least: 4.6
  * Test up to: 6.4
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -93,7 +93,7 @@ function jmitch_tinylytics_sanitize_options($input) {
 // Section callbacks
 function jmitch_tinylytics_general_section_callback() {
 
-    echo '<p class="section-note">' . esc_html__( 'Your unique site id can be found on your','jmitch-tinylytics' ) . ' <a href="https://tinylytics.app" target="_blank">Tinylytics</a> '. __( 'site page','jmitch-tinylytics') .'.</p>';
+    echo '<p class="section-note">' . esc_html__( 'Your unique site id can be found on your','jmitch-tinylytics' ) . ' <a href="https://tinylytics.app" target="_blank">Tinylytics</a> '. esc_html__( 'site page','jmitch-tinylytics') .'.</p>';
 
 }
 

@@ -134,6 +134,10 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+**Version 1.0.3 (02-11-2024)**
+
+* Update to correct a missed escaped echo'd attribute.
+
 **Version 1.0.2 (02-04-2024)**
 
 * Updates to meet WordPress plugin submission guidelines.
