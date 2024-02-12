@@ -105,7 +105,7 @@ Tinylytics cleans up after itself. All plugin settings will be removed from your
 
 ### Like this plugin? ###
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
 
 
@@ -132,7 +132,7 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 
 *Thank you to everyone who shares feedback for Tinylytics!*
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
 **Version 1.0.3 (02-11-2024)**
 
