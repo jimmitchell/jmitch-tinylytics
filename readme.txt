@@ -113,7 +113,7 @@ If you like Tinylytics, please take a moment to [give a 5-star rating](https://w
 == Screenshots ==
 
 1. Tinylytics: General Settings
-1. Tinylytics: Shortcodes
+2. Tinylytics: Shortcodes
 
 More screenshots available at the [Tinylytics Plugin Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
 
