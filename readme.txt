@@ -3,7 +3,7 @@
 Plugin Name: Tinylytics
 Plugin URI: https://jimmitchell.org/tinylytics-wp-plugin/
 Description: Adds your Tinylytics tracking code to your WordPress site.
-Tags: analytics, tinylytics, tracking, statistics, stats, uptime
+Tags: analytics, tracking, statistics, stats, uptime
 Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
 Donate link: https://ko-fi.com/jimmitchellmedia
@@ -15,6 +15,7 @@ Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
 License: GPL v2 or later
+Contributors: jimmitchell
 
 Adds Tinylytics tracking code to your WordPress site.
 
