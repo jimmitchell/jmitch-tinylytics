@@ -30,7 +30,7 @@
 	You should have received a copy of the GNU General Public License
 	with this program. If not, visit: https://www.gnu.org/licenses/
 	
-	Copyright 2023 Monzilla Media. All rights reserved.
+	Copyright 2024 Jim Mitchell Media. All rights reserved.
 */
 
  if (!defined('ABSPATH')) die();
