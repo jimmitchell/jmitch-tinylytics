@@ -12,7 +12,7 @@ Tested up to: 6.4
 Stable tag: 1.0.3
 Version:    1.0.3
 Requires PHP: 5.6.20
-Text Domain: tinylytics-wp
+Text Domain: jmitch-tinylytics
 Domain Path: /languages
 License: GPL v2 or later
 
@@ -46,7 +46,7 @@ __User Data:__ This plugin does not collect any user data. The tracking code add
 
 __Cookies:__ This plugin does not set or rely on any cookies whatsoever.
 
-__Services:__ This plugin connects to [Tinylytics.app](https://tinylytics.app) to record hit data from your site.
+__Services:__ This plugin connects to the [Tinylytics.app](https://tinylytics.app) platform to record hit data from your site.
 
 Tinylytics is developed and maintained by [Jim Mitchell](https://mastodon.social/@jimmitchell).
 
@@ -68,7 +68,7 @@ Links, toots, boosts, tweets and likes also appreciated. Thank you! :)
 
 After configuring your settings, you can verify that Tinylytics tracking code is included by viewing the source code of your web pages.
 
-__Note:__ this plugin adds the required Tinylytics code to your web pages. In order for the code to do anything, it must correspond to an active, properly configured Tinylytics account. Learn more from the [Tinylytics Documentation](https://tinylytics.app/docs).
+__Note:__ this plugin adds the required Tinylytics tracking code to your web pages. In order for the code to do anything, it must correspond to an active, properly configured Tinylytics account. Learn more from the [Tinylytics Documentation](https://tinylytics.app/docs).
 
 [More info on installing WP plugins &raquo;](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
@@ -137,6 +137,7 @@ If you like Tinylytics, please take a moment to [give a 5-star rating](https://w
 **Version 1.0.3 (02-11-2024)**
 
 * Update to correct a missed escaped echo'd attribute.
+* Initial release in the WordPress plugin repository.
 
 **Version 1.0.2 (02-04-2024)**
 
