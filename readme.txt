@@ -6,15 +6,15 @@ Description: Adds your Tinylytics tracking code to your WordPress site.
 Tags: analytics, tracking, statistics, stats, uptime
 Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
-Donate link: https://ko-fi.com/jimmitchellmedia
+Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 4.6
-Tested up to: 6.4
-Stable tag: 1.0.3
-Version:    1.0.3
+Tested up to: 6.4.3
+Stable tag: 1.0.4
+Version:    1.0.4
 Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
-License: GPL v2 or later
+License: GPL-2.0-or-later
 Contributors: jimmitchell
 
 Adds Tinylytics tracking code to your WordPress site.
@@ -23,7 +23,7 @@ Adds Tinylytics tracking code to your WordPress site.
 
 == Description ==
 
-This plugin enables Tinylytics for your entire WordPress site. Lightweight and fast with plenty of great features.
+This plugin enables Tinylytics analytics for your entire WordPress site. A Tinylytics account (free or paid) is required to use this plugin. Some Tinylytics premium features will not work in this plugin for free accounts.
 
 
 
@@ -38,7 +38,7 @@ This plugin enables Tinylytics for your entire WordPress site. Lightweight and f
 * Works with or without Gutenberg Block Editor
 * Easy to customize the tracking code
 
-This is a lightweight plugin that inserts the required Tinylytics tracking code. To view your site statistics, visit your Tinylytics account.
+This is a lightweight plugin that inserts a Tinylytics tracking code in the pages of your site. To view your site stats, visit your Tinylytics account.
 
 
 ### Privacy ###
@@ -49,14 +49,14 @@ __Cookies:__ This plugin does not set or rely on any cookies whatsoever.
 
 __Services:__ This plugin connects to the [Tinylytics.app](https://tinylytics.app) platform to record hit data from your site.
 
-Tinylytics is developed and maintained by [Jim Mitchell](https://mastodon.social/@jimmitchell).
+Tinylytics is developed and maintained by [Jim Mitchell](https://social.lol/@jim).
 
 
 ### Support development ###
 
-I develop and maintain this free plugin with love for the WordPress community. To show support, you can [make a donation](https://ko-fi.com/jimmitchellmedia). 
+I develop and maintain this free plugin with love for the WordPress community. To show your support, please [make a donation](https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR). 
 
-Links, toots, boosts, tweets and likes also appreciated. Thank you! :)
+Links, toots, boosts, tweets, likes, and kudos are also appreciated. Thank you! :)
 
 
 
@@ -134,6 +134,14 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.0.4 (02-17-2024)**
+
+* Better encoding of Tinylytics Javascript link.
+* Add proper versioning to css and js enqueued resources.
+* Replaced Ko-fi donation page URL with links directly to a Stripe donation page.
+* Updated GPL license reference from "GPL v2 or later" to "GPL-2.0-or-later" so plugin check tool doesn't flag it.
+* Add a Donate link to the plugin listing page.
 
 **Version 1.0.3 (02-11-2024)**
 

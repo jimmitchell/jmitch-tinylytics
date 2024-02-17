@@ -15,4 +15,4 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 <p><?php esc_html_e( 'Though I freely provide this plugin to the WordPress community, consider making a small donation. A few bucks goes a long way towards making improvements','jmitch-tinylytics' ); ?>.</p>
 <p><strong><?php esc_html_e( 'Note:','jmitch-tinylytics' ); ?></strong> <?php esc_html_e( 'Making a donation gets you priority support if you need it','jmitch-tinylytics' ); ?>.</p>
-<p style="margin-top:25px;"><a href="https://ko-fi.com/jimmitchellmedia" target="_blank" class="donate-button"><?php esc_html_e( 'Support Continued Development' ); ?></a></p>
+<p style="margin-top:25px;"><a href="https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR" target="_blank" class="donate-button"><?php esc_html_e( 'Support Continued Development' ); ?></a></p>

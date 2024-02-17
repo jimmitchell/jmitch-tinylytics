@@ -6,14 +6,14 @@
  * Tags: analytics, ga, google, google analytics, tracking, statistics, stats
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
- * Dontate link: https://ko-fi.com/jimmitchellmedia
+ * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
- * Test up to: 6.4
- * Version: 1.0.3
+ * Test up to: 6.4.3
+ * Version: 1.0.4
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
- * License: GPL v2 or later
+ * License: GPL-2.0-or-later
  */
 
 /*
@@ -34,6 +34,8 @@
 */
 
  if (!defined('ABSPATH')) die();
+
+ define( 'TINYLYTICS__VERSION', '1.0.4' );
 
 // Hook functions into WordPress
 add_action('admin_init', 'jmitch_tinylytics_register_settings');
@@ -263,9 +265,9 @@ function jmitch_tinylytics_output_script() {
         
         wp_enqueue_script(
             'jmitch-tinylytics',
-            esc_url($script_url),
+            esc_url_raw( $script_url ),
             array(),
-            NULL,
+            TINYLYTICS__VERSION,
             array(
                 'strategy'  => 'defer',
                 'in_footer' => true
@@ -279,7 +281,7 @@ add_action('wp_footer', 'jmitch_tinylytics_output_script');
 // *** Enqueue user scripts
 function jmitch_tinylytics_user_scripts() {
 	$plugin_url = plugin_dir_url( __FILE__ );
-	wp_enqueue_style( 'style',  $plugin_url . "/css/style.css");
+	wp_enqueue_style( 'style',  $plugin_url . "css/style.css", array(), TINYLYTICS__VERSION, 'all' );
 }
 add_action( 'admin_print_styles', 'jmitch_tinylytics_user_scripts' );
 
@@ -294,10 +296,12 @@ function jmitch_tinylytics_settings_link( $links ) {
 	) );
 	
     $settings_link = '<a href="'. $url .'">' . esc_html__( 'Settings', 'jmitch-tinylytics' ) . '</a>';
+    $donate_link = '<a href="https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR" target="_blank">' . esc_html__( 'Donate', 'jmitch-tinylytics' ) . '</a>';
 	
     array_push(
 		$links,
-		$settings_link
+		$settings_link,
+        $donate_link
 	);
 	return $links;
 }
