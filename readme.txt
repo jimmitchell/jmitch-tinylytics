@@ -110,6 +110,12 @@ If you like Tinylytics, please take a moment to [give a 5-star rating](https://w
 
 
 
+== Frequently Asked Questions ==
+
+None as of yet. :)
+
+
+
 == Screenshots ==
 
 1. Tinylytics: General Settings
