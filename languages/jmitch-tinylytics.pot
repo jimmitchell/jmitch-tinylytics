@@ -14,88 +14,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: jmitch-tinylytics.php:48
+#: jmitch-tinylytics.php:50
 msgid "General Settings"
 msgstr ""
 
-#: jmitch-tinylytics.php:49
+#: jmitch-tinylytics.php:51
 msgid "Tinylytics Options"
 msgstr ""
 
-#: jmitch-tinylytics.php:51
+#: jmitch-tinylytics.php:53
 msgid "Site ID"
 msgstr ""
 
-#: jmitch-tinylytics.php:52
+#: jmitch-tinylytics.php:54
 msgid "Display hits?"
 msgstr ""
 
-#: jmitch-tinylytics.php:53
+#: jmitch-tinylytics.php:55
 msgid "Link to your public stats?"
 msgstr ""
 
-#: jmitch-tinylytics.php:54
+#: jmitch-tinylytics.php:56
 msgid "Display uptime?"
 msgstr ""
 
-#: jmitch-tinylytics.php:55
+#: jmitch-tinylytics.php:57
 msgid "Display Kudos?"
 msgstr ""
 
-#: jmitch-tinylytics.php:56
+#: jmitch-tinylytics.php:58
 msgid "Kudos label"
 msgstr ""
 
-#: jmitch-tinylytics.php:57
+#: jmitch-tinylytics.php:59
 msgid "Display webring?"
 msgstr ""
 
-#: jmitch-tinylytics.php:58
+#: jmitch-tinylytics.php:60
 msgid "Webring label"
 msgstr ""
 
-#: jmitch-tinylytics.php:59
+#: jmitch-tinylytics.php:61
 msgid "Display webring avatars?"
 msgstr ""
 
-#: jmitch-tinylytics.php:60
+#: jmitch-tinylytics.php:62
 msgid "Display country flags?"
 msgstr ""
 
-#: jmitch-tinylytics.php:96
+#: jmitch-tinylytics.php:98
 msgid "Your unique site id can be found on your"
 msgstr ""
 
-#: jmitch-tinylytics.php:96
+#: jmitch-tinylytics.php:98
 msgid "site page"
 msgstr ""
 
-#: jmitch-tinylytics.php:102
+#: jmitch-tinylytics.php:104
 msgid "These settings enable the various tracking features of"
 msgstr ""
 
-#: jmitch-tinylytics.php:110
+#: jmitch-tinylytics.php:112
 msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
-#: jmitch-tinylytics.php:118
+#: jmitch-tinylytics.php:120
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: jmitch-tinylytics.php:126
+#: jmitch-tinylytics.php:128
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: jmitch-tinylytics.php:202
+#: jmitch-tinylytics.php:204
 msgid "Settings Saved"
 msgstr ""
 
-#: jmitch-tinylytics.php:212
+#: jmitch-tinylytics.php:214
 msgid "for"
 msgstr ""
 
-#: jmitch-tinylytics.php:295
+#: jmitch-tinylytics.php:298
 msgid "Settings"
+msgstr ""
+
+#: jmitch-tinylytics.php:299
+msgid "Donate"
 msgstr ""
 
 #: admin-shortcodes.php:14
