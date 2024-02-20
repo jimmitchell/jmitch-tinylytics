@@ -33,9 +33,9 @@
 	Copyright 2024 Jim Mitchell Media. All rights reserved.
 */
 
- if (!defined('ABSPATH')) die();
+if (!defined('ABSPATH')) die();
 
- define( 'TINYLYTICS__VERSION', '1.0.4' );
+define( 'TINYLYTICS__VERSION', '1.0.4' );
 
 // Hook functions into WordPress
 add_action('admin_init', 'jmitch_tinylytics_register_settings');
