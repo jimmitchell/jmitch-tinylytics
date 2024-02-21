@@ -143,7 +143,7 @@ If you like Tinylytics, please take a moment to [give a 5-star rating](https://w
 
 **Version 1.0.5 (02-21-2024)**
 
-* Fix a site PHP error if options have not been set in the plugin yet.
+* Fix a minor site error if options have not been set in the plugin yet.
 * Remove an unused CSS style.
 * Code clean up for readability sake.
 
