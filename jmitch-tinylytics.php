@@ -9,7 +9,7 @@
  * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
  * Test up to: 6.4.3
- * Version: 1.0.5
+ * Version: 1.0.6
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -35,7 +35,7 @@
 
 if ( !defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.0.5' );
+define( 'TINYLYTICS__VERSION', '1.0.6' );
 
 // Hook functions into WordPress
 add_action( 'admin_init', 'jmitch_tinylytics_register_settings' );
@@ -240,7 +240,7 @@ function jmitch_tinylytics_output_script() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
     
-    if ( $options ) {
+    if ( $options && esc_attr( $options['site_id'] ) != '' ) {
 
         $site_id = esc_attr( $options['site_id'] ?? '' );
         $hits = $options['display_hits'];
