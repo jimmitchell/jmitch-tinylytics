@@ -141,7 +141,7 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
-**Version 1.1.0 (02-21-2024)**
+**Version 1.1.0 (03-07-2024)**
 
 * Add option to ignore hits for WordPress admins who are logged into their site.
 * Add the ability to set a custom link label when the display public stats option is enabled.
