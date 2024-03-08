@@ -69,10 +69,14 @@ function jmitch_tinylytics_stats_function() {
 	$output = '';
 	$options = get_option( 'jmitch_tinylytics_settings' );
 	$stats = $options['display_stats'];
+	$stats_label = $options['stats_label'];
 	$hits = $options['display_hits'];
 	$uptime = $options['display_uptime'];
 	if ( $stats && $hits ) {
-		$output .= '<span class="tiny_counter"><a href="" target="_blank" class="tinylytics_public_stats">' . esc_html__( 'My Stats', 'jmitch-tinylytics' ) . '</a>: <span class="tinylytics_hits"></span></span>';
+		if ( $stats_label == '' || $stats_label == NULL ) {
+			$stats_label = esc_html__( 'My Stats', 'jmitch-tinylytics' );
+		}
+		$output .= '<span class="tiny_counter"><a href="" target="_blank" class="tinylytics_public_stats">' . $stats_label . '</a>: <span class="tinylytics_hits"></span></span>';
 	}
 	else if ( $hits ) {
 		$output .= '<span class="tiny_counter"><a href="https://tinylytics.app">Tinylytics</a>: <span class="tinylytics_hits"></span></span>';

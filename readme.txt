@@ -9,8 +9,8 @@ Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 4.6
 Tested up to: 6.4.3
-Stable tag: 1.0.6
-Version:    1.0.6
+Stable tag: 1.1.0
+Version:    1.1.0
 Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
@@ -140,6 +140,11 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.1.0 (02-21-2024)**
+
+* Add option to ignore hits for WordPress admins who are logged into their site.
+* Add the ability to set a custom link label when the display public stats option is enabled.
 
 **Version 1.0.6 (02-21-2024)**
 

@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Tinylytics
  * Plugin URI: https://jimmitchell.org/tinylytics-wp-plugin/
- * Description: A simple plugin for embedding the Tinylytics script.
- * Tags: analytics, ga, google, google analytics, tracking, statistics, stats
+ * Description: A simple plugin to embed a <a href="https://tinylytics.app">Tinylytics</a> tracking script to your site.
+ * Tags: analytics, ga, google, google analytics, tracking, statistics, stats, hits
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
  * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
  * Test up to: 6.4.3
- * Version: 1.0.6
+ * Version: 1.1.0
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -33,14 +33,17 @@
 	Copyright 2024 Jim Mitchell Media. All rights reserved.
 */
 
-if ( !defined( 'ABSPATH' )) die();
+if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.0.6' );
+define( 'TINYLYTICS__VERSION', '1.1.0' );
 
 // Hook functions into WordPress
+add_action( 'init', 'jmitch_tinylytics_start_session', 1 );
+add_action( 'init', 'jmitch_tinylytics_load_i18n' );
 add_action( 'admin_init', 'jmitch_tinylytics_register_settings' );
 add_action( 'admin_menu', 'jmitch_tinylytics_add_menu_page' );
-add_action( 'init', 'jmitch_tinylytics_load_i18n' );
+add_action( 'wp_logout', 'jmitch_tinylytics_end_session' );
+add_action( 'wp_login', 'jmitch_tinylytics_end_session' );
 
 // Register the settings
 function jmitch_tinylytics_register_settings() {
@@ -51,8 +54,10 @@ function jmitch_tinylytics_register_settings() {
     add_settings_section( 'jmitch_tinylytics_options_section', esc_html__( 'Tinylytics Options','jmitch-tinylytics' ), 'jmitch_tinylytics_options_section_callback', 'jmitch-tinylytics' );
     
     add_settings_field( 'site_id', esc_html__( 'Site ID','jmitch-tinylytics' ), 'jmitch_tinylytics_site_id_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_general_section' );
-    add_settings_field( 'display_hits', esc_html__( 'Display hits?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_hits_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
+    add_settings_field( 'ignore_hits', esc_html__( 'Ignore admin hits?','jmitch-tinylytics' ), 'jmitch_tinylytics_ignore_hits_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
+    add_settings_field( 'display_hits', esc_html__( 'Display visitor hits?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_hits_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
     add_settings_field( 'display_stats', esc_html__( 'Link to your public stats?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_stats_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
+    add_settings_field( 'stats_label', esc_html__( 'Public stats label','jmitch-tinylytics' ), 'jmitch_tinylytics_stats_label_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
     add_settings_field( 'display_uptime', esc_html__( 'Display uptime?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_uptime_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
     add_settings_field( 'display_kudos', esc_html__( 'Display Kudos?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_kudos_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
     add_settings_field( 'kudos_label', esc_html__( 'Kudos label','jmitch-tinylytics' ), 'jmitch_tinylytics_kudos_label_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
@@ -72,6 +77,10 @@ function jmitch_tinylytics_sanitize_options($input) {
         $sanitized_input['site_id']         = sanitize_text_field( $input['site_id'] );
     }
 
+    if ( isset( $input['stats_label'] ) ) {
+        $sanitized_input['stats_label']     = sanitize_text_field( $input['stats_label'] );
+    }
+    
     if ( isset( $input['kudos_label'] ) ) {
         $sanitized_input['kudos_label']     = sanitize_text_field( $input['kudos_label'] );
     }
@@ -80,6 +89,7 @@ function jmitch_tinylytics_sanitize_options($input) {
         $sanitized_input['webring_label']   = sanitize_text_field( $input['webring_label'] );
     }
 
+    $sanitized_input['ignore_hits']         = isset( $input['ignore_hits'] ) ? true : false;
     $sanitized_input['display_hits']        = isset( $input['display_hits'] ) ? true : false;
     $sanitized_input['display_stats']       = isset( $input['display_stats'] ) ? true : false;
     $sanitized_input['display_uptime']      = isset( $input['display_uptime'] ) ? true : false;
@@ -109,7 +119,15 @@ function jmitch_tinylytics_options_section_callback() {
 function jmitch_tinylytics_site_id_callback() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="site_id" size="40" name="jmitch_tinylytics_settings[site_id]" placeholder="' . esc_html__( 'Enter your Tinylytics unique site id...','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['site_id'] ?? '' ) . '" />';
+    echo '<input type="text" id="site_id" size="50" name="jmitch_tinylytics_settings[site_id]" placeholder="' . esc_html__( 'Enter your Tinylytics unique site id...','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['site_id'] ?? '' ) . '" />';
+
+}
+
+// Public stats label callback
+function jmitch_tinylytics_stats_label_callback() {
+
+    $options = get_option( 'jmitch_tinylytics_settings' );
+    echo '<input type="text" id="stats_label" size="50" name="jmitch_tinylytics_settings[stats_label]" placeholder="' . esc_html__( 'Add a custom public stats label','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['stats_label'] ?? '' ) . '" />';
 
 }
 
@@ -117,7 +135,7 @@ function jmitch_tinylytics_site_id_callback() {
 function jmitch_tinylytics_kudos_label_callback() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="kudos_label" size="40" name="jmitch_tinylytics_settings[kudos_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 👋','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['kudos_label'] ?? '' ) . '" />';
+    echo '<input type="text" id="kudos_label" size="50" name="jmitch_tinylytics_settings[kudos_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 👋','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['kudos_label'] ?? '' ) . '" />';
 
 }
 
@@ -125,7 +143,15 @@ function jmitch_tinylytics_kudos_label_callback() {
 function jmitch_tinylytics_webring_label_callback() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="webring_label" size="40" name="jmitch_tinylytics_settings[webring_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 🕸️💍','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['webring_label'] ?? '' ) . '" />';
+    echo '<input type="text" id="webring_label" size="50" name="jmitch_tinylytics_settings[webring_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 🕸️💍','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['webring_label'] ?? '' ) . '" />';
+
+}
+
+// Ignore Hits callback
+function jmitch_tinylytics_ignore_hits_callback() {
+
+    $options = get_option( 'jmitch_tinylytics_settings' );
+    echo '<input type="checkbox" id="ignore_hits" name="jmitch_tinylytics_settings[ignore_hits]" ' . checked( true, $options['ignore_hits'] ?? false, false ) . ' />';
 
 }
 
@@ -239,6 +265,11 @@ function jmitch_tinylytics_settings_page() {
 function jmitch_tinylytics_output_script() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
+
+    $ignore = false;
+    if( isset( $_SESSION['isAdmin'] ) && $options['ignore_hits'] == true ) {
+        $ignore = $_SESSION['isAdmin'];
+    }
     
     if ( $options && esc_attr( $options['site_id'] ) != '' ) {
 
@@ -252,8 +283,9 @@ function jmitch_tinylytics_output_script() {
         $webring_label = esc_attr( $options['webring_label'] ?? '' );
         $avatars = $options['display_avatars'];
         $flags = $options['display_flags'];
-	
+        
         $script_url = "https://tinylytics.app/embed/{$site_id}.js?";
+        $script_url .= $ignore ? 'ignore&' : '';
         $script_url .= $hits ? 'hits&' : '';
         $script_url .= $stats ? 'publicstats&' : '';
         $script_url .= $uptime ? 'uptime&' : '';
@@ -277,6 +309,7 @@ function jmitch_tinylytics_output_script() {
     }
 }
 add_action( 'wp_footer', 'jmitch_tinylytics_output_script' );
+
 
 // *** Enqueue user scripts
 function jmitch_tinylytics_user_scripts() {
@@ -328,6 +361,20 @@ function jmitch_tinylytics_load_i18n() {
         }
     }
 
+}
+
+
+// *** Session management
+function jmitch_tinylytics_start_session() {
+    if(!session_id()) {
+        session_start();
+    }
+    if ( current_user_can( 'manage_options' ) ) {
+        $_SESSION[ 'isAdmin' ] = true;
+    }
+}
+function jmitch_tinylytics_end_session() {
+    session_destroy ();
 }
 
 
