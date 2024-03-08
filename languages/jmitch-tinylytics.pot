@@ -14,91 +14,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: jmitch-tinylytics.php:50
+#: jmitch-tinylytics.php:53
 msgid "General Settings"
 msgstr ""
 
-#: jmitch-tinylytics.php:51
+#: jmitch-tinylytics.php:54
 msgid "Tinylytics Options"
 msgstr ""
 
-#: jmitch-tinylytics.php:53
+#: jmitch-tinylytics.php:56
 msgid "Site ID"
 msgstr ""
 
-#: jmitch-tinylytics.php:54
-msgid "Display hits?"
-msgstr ""
-
-#: jmitch-tinylytics.php:55
-msgid "Link to your public stats?"
-msgstr ""
-
-#: jmitch-tinylytics.php:56
-msgid "Display uptime?"
-msgstr ""
-
 #: jmitch-tinylytics.php:57
-msgid "Display Kudos?"
+msgid "Ignore admin hits?"
 msgstr ""
 
 #: jmitch-tinylytics.php:58
-msgid "Kudos label"
+msgid "Display visitor hits?"
 msgstr ""
 
 #: jmitch-tinylytics.php:59
-msgid "Display webring?"
+msgid "Link to your public stats?"
 msgstr ""
 
 #: jmitch-tinylytics.php:60
-msgid "Webring label"
+msgid "Public stats label"
 msgstr ""
 
 #: jmitch-tinylytics.php:61
-msgid "Display webring avatars?"
+msgid "Display uptime?"
 msgstr ""
 
 #: jmitch-tinylytics.php:62
+msgid "Display Kudos?"
+msgstr ""
+
+#: jmitch-tinylytics.php:63
+msgid "Kudos label"
+msgstr ""
+
+#: jmitch-tinylytics.php:64
+msgid "Display webring?"
+msgstr ""
+
+#: jmitch-tinylytics.php:65
+msgid "Webring label"
+msgstr ""
+
+#: jmitch-tinylytics.php:66
+msgid "Display webring avatars?"
+msgstr ""
+
+#: jmitch-tinylytics.php:67
 msgid "Display country flags?"
 msgstr ""
 
-#: jmitch-tinylytics.php:98
+#: jmitch-tinylytics.php:108
 msgid "Your unique site id can be found on your"
 msgstr ""
 
-#: jmitch-tinylytics.php:98
+#: jmitch-tinylytics.php:108
 msgid "site page"
 msgstr ""
 
-#: jmitch-tinylytics.php:104
+#: jmitch-tinylytics.php:114
 msgid "These settings enable the various tracking features of"
 msgstr ""
 
-#: jmitch-tinylytics.php:112
+#: jmitch-tinylytics.php:122
 msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
-#: jmitch-tinylytics.php:120
+#: jmitch-tinylytics.php:130
+msgid "Add a custom public stats label"
+msgstr ""
+
+#: jmitch-tinylytics.php:138
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: jmitch-tinylytics.php:128
+#: jmitch-tinylytics.php:146
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: jmitch-tinylytics.php:204
+#: jmitch-tinylytics.php:230
 msgid "Settings Saved"
 msgstr ""
 
-#: jmitch-tinylytics.php:214
+#: jmitch-tinylytics.php:240
 msgid "for"
 msgstr ""
 
-#: jmitch-tinylytics.php:298
+#: jmitch-tinylytics.php:331
 msgid "Settings"
 msgstr ""
 
-#: jmitch-tinylytics.php:299
+#: jmitch-tinylytics.php:332
 msgid "Donate"
 msgstr ""
 
@@ -178,6 +190,6 @@ msgstr ""
 msgid "Web Ring"
 msgstr ""
 
-#: user-shortcodes.php:75
+#: user-shortcodes.php:77
 msgid "My Stats"
 msgstr ""
