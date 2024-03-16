@@ -8,7 +8,7 @@
  * Author URI: https://jimmitchell.org
  * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
- * Test up to: 6.4.3
+ * Test up to: 6.5
  * Version: 1.1.0
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
