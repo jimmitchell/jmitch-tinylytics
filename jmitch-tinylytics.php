@@ -9,7 +9,7 @@
  * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
  * Test up to: 6.5
- * Version: 1.1.0
+ * Version: 1.1.1
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -35,7 +35,7 @@
 
 if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.1.0' );
+define( 'TINYLYTICS__VERSION', '1.1.1' );
 
 // Hook functions into WordPress
 add_action( 'init', 'jmitch_tinylytics_start_session', 1 );
@@ -367,7 +367,7 @@ function jmitch_tinylytics_load_i18n() {
 // *** Session management
 function jmitch_tinylytics_start_session() {
     if(!session_id()) {
-        session_start();
+        session_start( ['read_and_close' => true,] );
     }
     if ( current_user_can( 'manage_options' ) ) {
         $_SESSION[ 'isAdmin' ] = true;
