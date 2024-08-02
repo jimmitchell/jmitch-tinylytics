@@ -8,9 +8,9 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 4.6
-Tested up to: 6.5
-Stable tag: 1.1.1
-Version:    1.1.1
+Tested up to: 6.6.1
+Stable tag: 1.1.2
+Version:    1.1.2
 Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
@@ -127,11 +127,7 @@ More screenshots available at the [Tinylytics Plugin Homepage](https://jimmitche
 
 == Upgrade Notice ==
 
-To upgrade Tinylytics, remove the old version and replace with the new version. Or just click "Update" from the Plugins screen and let WordPress do it for you automatically.
-
-__Note:__ uninstalling the plugin from the WP Plugins screen results in the removal of all settings from the WP database. 
-
-For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
+To upgrade Tinylytics, just click "Update" from the Plugins screen and let WordPress do it for you automatically. For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell.org/tinylytics-wp-plugin/).
 
 
 
@@ -140,6 +136,11 @@ For more information, visit the [Tinylytics Plugin Homepage](https://jimmitchell
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.1.2 (08-02-2024)**
+
+* Add menu position order to properly group with other settings menu items.
+* Update WordPress tested version.
 
 **Version 1.1.1 (04-06-2024)**
 

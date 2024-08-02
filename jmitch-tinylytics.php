@@ -6,10 +6,10 @@
  * Tags: analytics, ga, google, google analytics, tracking, statistics, stats, hits
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
- * Dontate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
+ * Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
- * Test up to: 6.5
- * Version: 1.1.1
+ * Test up to: 6.6.1
+ * Version: 1.1.2
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -35,15 +35,15 @@
 
 if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.1.1' );
+define( 'TINYLYTICS__VERSION', '1.1.2' );
 
 // Hook functions into WordPress
-add_action( 'init', 'jmitch_tinylytics_start_session', 1 );
-add_action( 'init', 'jmitch_tinylytics_load_i18n' );
-add_action( 'admin_init', 'jmitch_tinylytics_register_settings' );
-add_action( 'admin_menu', 'jmitch_tinylytics_add_menu_page' );
-add_action( 'wp_logout', 'jmitch_tinylytics_end_session' );
-add_action( 'wp_login', 'jmitch_tinylytics_end_session' );
+add_action( 'init',         'jmitch_tinylytics_start_session', 1 );
+add_action( 'init',         'jmitch_tinylytics_load_i18n' );
+add_action( 'admin_init',   'jmitch_tinylytics_register_settings' );
+add_action( 'admin_menu',   'jmitch_tinylytics_add_menu_page' );
+add_action( 'wp_logout',    'jmitch_tinylytics_end_session' );
+add_action( 'wp_login',     'jmitch_tinylytics_end_session' );
 
 // Register the settings
 function jmitch_tinylytics_register_settings() {
@@ -214,7 +214,7 @@ function jmitch_tinylytics_display_flags_callback() {
 // Add menu page with custom icon
 function jmitch_tinylytics_add_menu_page() {
     
-    add_menu_page( 'Tinylytics', 'Tinylytics', 'manage_options', 'jmitch-tinylytics', 'jmitch_tinylytics_settings_page', 'dashicons-chart-bar' );
+    add_menu_page( 'Tinylytics', 'Tinylytics', 'manage_options', 'jmitch-tinylytics', 'jmitch_tinylytics_settings_page', 'dashicons-chart-bar', 89 );
 
 }
 
@@ -357,7 +357,7 @@ function jmitch_tinylytics_load_i18n() {
         if ( $loaded = load_textdomain( $domain, $path ) ) {
             return $loaded;
         } else {
-            return load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+            return load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
         }
     }
 
@@ -366,17 +366,21 @@ function jmitch_tinylytics_load_i18n() {
 
 // *** Session management
 function jmitch_tinylytics_start_session() {
-    if(!session_id()) {
+    
+    if( !session_id() ) {
         session_start( ['read_and_close' => true,] );
     }
     if ( current_user_can( 'manage_options' ) ) {
         $_SESSION[ 'isAdmin' ] = true;
     }
+    
 }
 function jmitch_tinylytics_end_session() {
-    session_destroy ();
+    
+    session_destroy();
+    
 }
 
 
-// *** Wordpress shortcodes to use in posts and pages
+// *** WordPress shortcodes to use in posts and pages
 include plugin_dir_path( __FILE__ ) . '/inc/user-shortcodes.php';
