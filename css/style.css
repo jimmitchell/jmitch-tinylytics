@@ -11,35 +11,20 @@
 	display: inline-block;
 }
 .wp-admin .tab-content .admin-right {
-	width: 280px;
-	min-width: 280px;
-	background: #e7e7e8;
-	border: 1px solid #c3c4c7;
+	width: 300px;
+	min-width: 300px;
+	background: #fff9e7;
+	border: 1px solid #d8d8bf;
 	padding: 5px 25px;
 	border-radius: 6px;
 	margin-top: 10px;
 	margin-left: 30px;
 }
+.toplevel_page_jmitch-tinylytics .nav-tab {
+	border-radius: 6px 6px 0 0;
+}
 .donate-button {
-	background-color:#d75151;
-	color: #fff;
-	display: block;
+	display: block !important;
 	text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 2.15384615;
-    min-height: 32px;
-    margin: 20px 0;
-    padding: 0 10px;
-    cursor: pointer;
-	border: 1px solid #d75151;
-    border-radius: 3px;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
-.donate-button:hover,
-.donate-button:active,
-.donate-button:focus {
-	background-color: #b45c5c;
-	color: #fff;
-}
+    margin: 20px 0 !important;
+ }
