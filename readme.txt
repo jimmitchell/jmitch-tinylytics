@@ -9,8 +9,8 @@ Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 4.6
 Tested up to: 6.6.1
-Stable tag: 1.1.2
-Version:    1.1.2
+Stable tag: 1.1.3
+Version:    1.1.3
 Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
@@ -136,6 +136,10 @@ To upgrade Tinylytics, just click "Update" from the Plugins screen and let WordP
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+**Version 1.1.3 (08-03-2024)**
+
+* Refactor code here and there. No big changes really.
 
 **Version 1.1.2 (08-02-2024)**
 

@@ -163,11 +163,11 @@ msgid "documentation"
 msgstr ""
 
 #: admin-support.php:14
-msgid "Your Support Matters"
+msgid "Enjoying Tinylytics for WordPress?"
 msgstr ""
 
 #: admin-support.php:16
-msgid "Though I freely provide this plugin to the WordPress community, consider making a small donation. A few bucks goes a long way towards making improvements"
+msgid "I love offering this plugin to the WordPress community for free! If you find it useful, consider supporting its development. Even a small donation can make a big difference in helping me improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features"
 msgstr ""
 
 #: admin-support.php:17
@@ -179,7 +179,7 @@ msgid "Making a donation gets you priority support if you need it"
 msgstr ""
 
 #: admin-support.php:18
-msgid "Support Continued Development"
+msgid "Donate Today and Help Me Grow!"
 msgstr ""
 
 #: user-shortcodes.php:46

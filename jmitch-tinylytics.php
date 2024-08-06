@@ -9,7 +9,7 @@
  * Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
  * Test up to: 6.6.1
- * Version: 1.1.2
+ * Version: 1.1.3
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
