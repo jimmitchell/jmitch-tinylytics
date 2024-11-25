@@ -1,16 +1,16 @@
-=== Tinylytics – Connect Tinylytics to WordPress ===
+=== Tinylytics ===
 
 Plugin Name: Tinylytics
 Plugin URI: https://jimmitchell.org/tinylytics-wp-plugin/
-Description: Adds your Tinylytics tracking code to your WordPress site.
+Description: Easily add a Tinylytics tracking code to your WordPress site pages.
 Tags: analytics, tracking, statistics, stats, uptime
 Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 4.6
-Tested up to: 6.6.1
-Stable tag: 1.1.3
-Version:    1.1.3
+Tested up to: 6.7
+Stable tag: 1.1.4
+Version:    1.1.4
 Requires PHP: 5.6.20
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
@@ -36,25 +36,25 @@ This plugin enables Tinylytics analytics for your entire WordPress site. A Tinyl
 * Includes tracking code on all WordPress web pages
 * Sleek plugin Settings page with toggling panels
 * Works with or without Gutenberg Block Editor
-* Easy to customize the tracking code
+* Easy to customize the in-page tracking code
 
-This is a lightweight plugin that inserts a Tinylytics tracking code in the pages of your site. To view your site stats, visit your Tinylytics account.
+This is a lightweight plugin that inserts a Tinylytics tracking code at the bottom of your site pages. To view your site stats, visit your [Tinylytics](https://tinylytics.app) account.
 
 
 ### Privacy ###
 
 __User Data:__ This plugin does not collect any user data. The tracking code added by this plugin is used by Tinylytics to collect all sorts of user data. You can learn more about Tinylytics Privacy [here](https://tinylytics.app/privacy).
 
-__Cookies:__ This plugin does not set or rely on any cookies whatsoever.
+__Cookies:__ This plugin does not set or rely on cookies whatsoever.
 
-__Services:__ This plugin connects to the [Tinylytics.app](https://tinylytics.app) platform to record hit data from your site.
+__Services:__ This plugin connects to the [Tinylytics.app](https://tinylytics.app) platform to record data from your site visits.
 
 Tinylytics is developed and maintained by [Jim Mitchell](https://social.lol/@jim).
 
 
 ### Support development ###
 
-I develop and maintain this free plugin with love for the WordPress community. To show your support, please [make a donation](https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR). 
+I enjoy offering this plugin to the WordPress community for free. However, if you find it useful, consider supporting its development. Even a small donation makes a big difference helping me improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features. To show your support, [make a donation](https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR). 
 
 Links, toots, boosts, tweets, likes, and kudos are also appreciated. Thank you! :)
 
@@ -106,7 +106,7 @@ Tinylytics cleans up after itself. All plugin settings will be removed from your
 
 ### Like this plugin? ###
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps keep development and support going strong. Thank you!
 
 
 
@@ -135,7 +135,14 @@ To upgrade Tinylytics, just click "Update" from the Plugins screen and let WordP
 
 *Thank you to everyone who shares feedback for Tinylytics!*
 
-If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps keep development and support going strong. Thank you!
+
+**Version 1.1.4 (11-25-2024)**
+
+* Properly sanitize the check for an existing admin session.
+* Updates to some text strings to use better grammar.
+* Remove a reference to the trademarked "WordPress" term.
+* Update the WordPress tested version.
 
 **Version 1.1.3 (08-03-2024)**
 
