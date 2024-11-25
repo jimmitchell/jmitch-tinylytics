@@ -102,10 +102,6 @@ msgstr ""
 msgid "Settings Saved"
 msgstr ""
 
-#: jmitch-tinylytics.php:240
-msgid "for"
-msgstr ""
-
 #: jmitch-tinylytics.php:331
 msgid "Settings"
 msgstr ""
@@ -163,15 +159,11 @@ msgid "documentation"
 msgstr ""
 
 #: admin-support.php:14
-msgid "Enjoying Tinylytics for WordPress?"
+msgid "Enjoying My Tinylytics Plugin?"
 msgstr ""
 
 #: admin-support.php:16
-msgid "I love offering this plugin to the WordPress community for free! If you find it useful, consider supporting its development. Even a small donation can make a big difference in helping me improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features"
-msgstr ""
-
-#: admin-support.php:17
-msgid "Note:"
+msgid "I enjoy offering this plugin to the WordPress community for free. However, if you find it useful, consider supporting its development. A small donation can make a big difference helping to improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features"
 msgstr ""
 
 #: admin-support.php:17
@@ -179,7 +171,7 @@ msgid "Making a donation gets you priority support if you need it"
 msgstr ""
 
 #: admin-support.php:18
-msgid "Donate Today and Help Me Grow!"
+msgid "Support My Tinylytics Plugin"
 msgstr ""
 
 #: user-shortcodes.php:46

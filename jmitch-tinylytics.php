@@ -8,8 +8,8 @@
  * Author URI: https://jimmitchell.org
  * Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 4.6
- * Test up to: 6.6.1
- * Version: 1.1.3
+ * Test up to: 6.7
+ * Version: 1.1.4
  * Requires PHP: 5.6.20
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -35,7 +35,7 @@
 
 if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.1.2' );
+define( 'TINYLYTICS__VERSION', '1.1.4' );
 
 // Hook functions into WordPress
 add_action( 'init',         'jmitch_tinylytics_start_session', 1 );
@@ -74,29 +74,29 @@ function jmitch_tinylytics_sanitize_options($input) {
     $sanitized_input = array();
 
     if ( isset( $input['site_id'] ) ) {
-        $sanitized_input['site_id']         = sanitize_text_field( $input['site_id'] );
+        $sanitized_input['site_id'] = sanitize_text_field( $input['site_id'] );
     }
 
     if ( isset( $input['stats_label'] ) ) {
-        $sanitized_input['stats_label']     = sanitize_text_field( $input['stats_label'] );
+        $sanitized_input['stats_label'] = sanitize_text_field( $input['stats_label'] );
     }
     
     if ( isset( $input['kudos_label'] ) ) {
-        $sanitized_input['kudos_label']     = sanitize_text_field( $input['kudos_label'] );
+        $sanitized_input['kudos_label'] = sanitize_text_field( $input['kudos_label'] );
     }
     
     if ( isset( $input['webring_label'] ) ) {
-        $sanitized_input['webring_label']   = sanitize_text_field( $input['webring_label'] );
+        $sanitized_input['webring_label'] = sanitize_text_field( $input['webring_label'] );
     }
 
-    $sanitized_input['ignore_hits']         = isset( $input['ignore_hits'] ) ? true : false;
-    $sanitized_input['display_hits']        = isset( $input['display_hits'] ) ? true : false;
-    $sanitized_input['display_stats']       = isset( $input['display_stats'] ) ? true : false;
-    $sanitized_input['display_uptime']      = isset( $input['display_uptime'] ) ? true : false;
-    $sanitized_input['display_kudos']       = isset( $input['display_kudos'] ) ? true : false;
-    $sanitized_input['display_webring']     = isset( $input['display_webring'] ) ? true : false;
-    $sanitized_input['display_avatars']     = isset( $input['display_avatars'] ) ? true : false;
-    $sanitized_input['display_flags']       = isset( $input['display_flags'] ) ? true : false;
+    $sanitized_input['ignore_hits'] = isset( $input['ignore_hits'] ) ? true : false;
+    $sanitized_input['display_hits'] = isset( $input['display_hits'] ) ? true : false;
+    $sanitized_input['display_stats'] = isset( $input['display_stats'] ) ? true : false;
+    $sanitized_input['display_uptime'] = isset( $input['display_uptime'] ) ? true : false;
+    $sanitized_input['display_kudos'] = isset( $input['display_kudos'] ) ? true : false;
+    $sanitized_input['display_webring'] = isset( $input['display_webring'] ) ? true : false;
+    $sanitized_input['display_avatars'] = isset( $input['display_avatars'] ) ? true : false;
+    $sanitized_input['display_flags'] = isset( $input['display_flags'] ) ? true : false;
 
     return $sanitized_input;
 
@@ -225,7 +225,7 @@ function jmitch_tinylytics_settings_page() {
         return;
     }
 
-    if ( isset( $_GET['settings-updated'] ) ) {
+    if ( isset( $_GET['settings-updated'] ) ) { // phpcs:ignore
 		// add settings saved message with the class of "updated"
 		add_settings_error( 'jmitch_tinylytics_messages', 'jmitch_tinylytics_message', esc_html__( 'Settings Saved', 'jmitch-tinylytics' ), 'updated' );
 	}
@@ -233,15 +233,15 @@ function jmitch_tinylytics_settings_page() {
     settings_errors( 'jmitch_tinylytics_messages' );
 
     $default_tab = null;
-    $tab = isset( $_GET['tab'] ) ? sanitize_key( $_GET['tab'] ) : $default_tab;
+    $tab = isset( $_GET['tab'] ) ? sanitize_key( $_GET['tab'] ) : $default_tab; // phpcs:ignore
 
     ?>
     <div class="wrap">
-        <h1>Tinylytics <?php esc_html_e( 'for','jmitch-tinylytics' ); ?> WordPress</h1>
+        <h1>Tinylytics</h1>
 
         <nav class="nav-tab-wrapper">
-            <a href="?page=jmitch-tinylytics" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'General Settings', 'jmitch-tinylytics' ); ?></a>
-            <a href="?page=jmitch-tinylytics&tab=shortcode" class="nav-tab <?php if($tab==='shortcode'):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'Shortcodes', 'jmitch-tinylytics' ); ?></a>
+            <a href="?page=jmitch-tinylytics" class="nav-tab <?php if($tab === null):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'General Settings', 'jmitch-tinylytics' ); ?></a>
+            <a href="?page=jmitch-tinylytics&tab=shortcode" class="nav-tab <?php if($tab === 'shortcode'):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'Shortcodes', 'jmitch-tinylytics' ); ?></a>
         </nav>
         <div class="tab-content">
             <div class="admin-left">
@@ -266,13 +266,13 @@ function jmitch_tinylytics_output_script() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
 
-    $ignore = false;
-    if( isset( $_SESSION['isAdmin'] ) && $options['ignore_hits'] == true ) {
-        $ignore = $_SESSION['isAdmin'];
-    }
-    
-    if ( $options && esc_attr( $options['site_id'] ) != '' ) {
+    if ( $options && esc_attr( $options['site_id'] ) !== '' ) {
 
+        $ignore = false;
+        if( isset( $_SESSION['isAdmin'] ) && $options['ignore_hits'] === true ) {
+            $ignore = sanitize_key( $_SESSION['isAdmin'] );
+        }
+    
         $site_id = esc_attr( $options['site_id'] ?? '' );
         $hits = $options['display_hits'];
         $stats = $options['display_stats'];
