@@ -1,0 +1,13 @@
+{
+  "identifier" : "FC1045A5-57C0-4F09-9059-EC446923E76A",
+  "ignoredFilePatterns" : [
+    ".gitignore",
+    ".nova",
+    ".git",
+    ".DS_Ignore"
+  ],
+  "localPath" : ".",
+  "remotePath" : "\/var\/www\/html\/wp-content\/plugins\/jmitch-tinylytics",
+  "server" : "Tinylytics Plugin",
+  "usesPublishing" : false
+}
