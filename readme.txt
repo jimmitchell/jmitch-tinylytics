@@ -7,11 +7,11 @@ Tags: analytics, tracking, statistics, stats, uptime
 Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
-Requires at least: 4.6
-Tested up to: 6.7
-Stable tag: 1.1.4
-Version:    1.1.4
-Requires PHP: 5.6.20
+Requires at least: 6.3
+Tested up to: 7.0
+Stable tag: 1.2.0
+Version:    1.2.0
+Requires PHP: 7.4
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
 License: GPL-2.0-or-later
@@ -136,6 +136,25 @@ To upgrade Tinylytics, just click "Update" from the Plugins screen and let WordP
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps keep development and support going strong. Thank you!
+
+**Version 1.2.0 (07-14-2026)**
+
+* Refactor the settings screen to use shared, data-driven field rendering. Field labels are now clickable and properly associated with their inputs for accessibility.
+* Load the plugin's admin stylesheet only on the Tinylytics settings page instead of every admin screen.
+* Enqueue the tracking script on the standard wp_enqueue_scripts hook for better compatibility with caching and optimization plugins.
+* Rework translatable strings to use full sentences with placeholders so the plugin can be properly translated.
+* Build admin tab and settings links with WordPress URL functions.
+
+**Version 1.1.5 (07-14-2026)**
+
+* Fix the "Ignore admin hits" option so it works reliably. Admin detection now uses WordPress user capabilities instead of PHP sessions, so the plugin no longer sets a session cookie for visitors.
+* Prevent PHP warnings on PHP 8 when some plugin settings have never been saved.
+* Properly URL-encode the custom Kudos label in the tracking script URL so labels with spaces or special characters work.
+* Stop appending a version query argument to the Tinylytics script URL.
+* Remove the custom translation loader; WordPress loads plugin translations automatically.
+* Escape custom labels in shortcode output.
+* Raise minimum requirements to WordPress 6.3 and PHP 7.4.
+* Fix minor typos.
 
 **Version 1.1.4 (11-25-2024)**
 

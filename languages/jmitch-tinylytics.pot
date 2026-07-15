@@ -1,187 +1,205 @@
-#, fuzzy
+# Copyright (C) 2026 Jim Mitchell
+# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tinylytics\n"
+"Project-Id-Version: Tinylytics 1.2.0\n"
 "Report-Msgid-Bugs-To: hello@jimmitchell.org\n"
-"POT-Creation-Date: 2024-01-15 07:30-0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/"
+"POT-Creation-Date: 2026-07-15T11:34:56+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: jmitch-tinylytics\n"
 
-#: jmitch-tinylytics.php:53
-msgid "General Settings"
+#. Plugin Name of the plugin
+#: jmitch-tinylytics.php
+msgid "Tinylytics"
 msgstr ""
 
-#: jmitch-tinylytics.php:54
-msgid "Tinylytics Options"
+#. Plugin URI of the plugin
+#: jmitch-tinylytics.php
+msgid "https://jimmitchell.org/tinylytics-wp-plugin/"
 msgstr ""
 
-#: jmitch-tinylytics.php:56
+#. Description of the plugin
+#: jmitch-tinylytics.php
+msgid "A simple plugin to embed a <a href=\"https://tinylytics.app\">Tinylytics</a> tracking script to your site."
+msgstr ""
+
+#. Author of the plugin
+#: jmitch-tinylytics.php
+msgid "Jim Mitchell"
+msgstr ""
+
+#. Author URI of the plugin
+#: jmitch-tinylytics.php
+msgid "https://jimmitchell.org"
+msgstr ""
+
+#: inc/admin-shortcodes.php:14
+#: jmitch-tinylytics.php:255
+msgid "Shortcodes"
+msgstr ""
+
+#: inc/admin-shortcodes.php:16
+msgid "Tinylytics comes with a variety of shortcodes which can be embedded directly in a post, page, or theme block to reduce the need for extensive HTML customizations."
+msgstr ""
+
+#: inc/admin-shortcodes.php:19
+msgid "Displays an interactive button to track \"kudos\" given by readers. Best used directly in posts and pages."
+msgstr ""
+
+#: inc/admin-shortcodes.php:20
+msgid "Displays a count of page loads of the page viewed. Best used directly in posts and pages."
+msgstr ""
+
+#: inc/admin-shortcodes.php:21
+msgid "Displays both overall site hits and uptime (Note: a Tinylytics subscription is required to display uptime). Best used in the footer of your site."
+msgstr ""
+
+#: inc/admin-shortcodes.php:22
+msgid "Displays a random link to a Tinylytics webring site. Enabling the \"Display webring avatars?\" option will include the avatar if the site has one. Best used in the footer of your site."
+msgstr ""
+
+#: inc/admin-shortcodes.php:23
+msgid "Displays flags from all the countries of site visitors. Best used in the footer of your site."
+msgstr ""
+
+#. translators: 1: link to the WordPress Shortcode Block documentation, 2: link to the Tinylytics website, 3: link to the Tinylytics documentation
+#: inc/admin-shortcodes.php:29
+#, php-format
+msgid "Learn how to use the %1$s in your theme. More information about %2$s options can be found in the %3$s."
+msgstr ""
+
+#: inc/admin-shortcodes.php:30
+msgid "Shortcode Block"
+msgstr ""
+
+#: inc/admin-shortcodes.php:32
+msgid "documentation"
+msgstr ""
+
+#: inc/admin-support.php:14
+msgid "Enjoying My Tinylytics Plugin?"
+msgstr ""
+
+#: inc/admin-support.php:16
+msgid "I enjoy offering this plugin to the WordPress community for free. However, if you find it useful, consider supporting its development. A small donation can make a big difference helping to improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features."
+msgstr ""
+
+#: inc/admin-support.php:17
+msgid "Making a donation gets you priority support whenever you need it."
+msgstr ""
+
+#: inc/admin-support.php:18
+msgid "Support My Tinylytics Plugin"
+msgstr ""
+
+#: inc/user-shortcodes.php:46
+#: inc/user-shortcodes.php:48
+msgid "Web Ring"
+msgstr ""
+
+#: inc/user-shortcodes.php:77
+msgid "My Stats"
+msgstr ""
+
+#: jmitch-tinylytics.php:51
 msgid "Site ID"
+msgstr ""
+
+#: jmitch-tinylytics.php:52
+msgid "Enter your Tinylytics unique site id..."
 msgstr ""
 
 #: jmitch-tinylytics.php:57
 msgid "Ignore admin hits?"
 msgstr ""
 
-#: jmitch-tinylytics.php:58
+#: jmitch-tinylytics.php:62
 msgid "Display visitor hits?"
 msgstr ""
 
-#: jmitch-tinylytics.php:59
+#: jmitch-tinylytics.php:67
 msgid "Link to your public stats?"
 msgstr ""
 
-#: jmitch-tinylytics.php:60
+#: jmitch-tinylytics.php:72
 msgid "Public stats label"
 msgstr ""
 
-#: jmitch-tinylytics.php:61
-msgid "Display uptime?"
-msgstr ""
-
-#: jmitch-tinylytics.php:62
-msgid "Display Kudos?"
-msgstr ""
-
-#: jmitch-tinylytics.php:63
-msgid "Kudos label"
-msgstr ""
-
-#: jmitch-tinylytics.php:64
-msgid "Display webring?"
-msgstr ""
-
-#: jmitch-tinylytics.php:65
-msgid "Webring label"
-msgstr ""
-
-#: jmitch-tinylytics.php:66
-msgid "Display webring avatars?"
-msgstr ""
-
-#: jmitch-tinylytics.php:67
-msgid "Display country flags?"
-msgstr ""
-
-#: jmitch-tinylytics.php:108
-msgid "Your unique site id can be found on your"
-msgstr ""
-
-#: jmitch-tinylytics.php:108
-msgid "site page"
-msgstr ""
-
-#: jmitch-tinylytics.php:114
-msgid "These settings enable the various tracking features of"
-msgstr ""
-
-#: jmitch-tinylytics.php:122
-msgid "Enter your Tinylytics unique site id..."
-msgstr ""
-
-#: jmitch-tinylytics.php:130
+#: jmitch-tinylytics.php:73
 msgid "Add a custom public stats label"
 msgstr ""
 
-#: jmitch-tinylytics.php:138
+#: jmitch-tinylytics.php:78
+msgid "Display uptime?"
+msgstr ""
+
+#: jmitch-tinylytics.php:83
+msgid "Display Kudos?"
+msgstr ""
+
+#: jmitch-tinylytics.php:88
+msgid "Kudos label"
+msgstr ""
+
+#: jmitch-tinylytics.php:89
 msgid "Enter any combination of text or emoji 👋"
 msgstr ""
 
-#: jmitch-tinylytics.php:146
+#: jmitch-tinylytics.php:94
+msgid "Display webring?"
+msgstr ""
+
+#: jmitch-tinylytics.php:99
+msgid "Webring label"
+msgstr ""
+
+#: jmitch-tinylytics.php:100
 msgid "Enter any combination of text or emoji 🕸️💍"
 msgstr ""
 
-#: jmitch-tinylytics.php:230
+#: jmitch-tinylytics.php:105
+msgid "Display webring avatars?"
+msgstr ""
+
+#: jmitch-tinylytics.php:110
+msgid "Display country flags?"
+msgstr ""
+
+#: jmitch-tinylytics.php:125
+#: jmitch-tinylytics.php:254
+msgid "General Settings"
+msgstr ""
+
+#: jmitch-tinylytics.php:126
+msgid "Tinylytics Options"
+msgstr ""
+
+#. translators: %s: link to the Tinylytics website
+#: jmitch-tinylytics.php:168
+#, php-format
+msgid "Your unique site id can be found on your %s site page."
+msgstr ""
+
+#. translators: %s: link to the Tinylytics documentation
+#: jmitch-tinylytics.php:181
+#, php-format
+msgid "These settings enable the various tracking features of %s."
+msgstr ""
+
+#: jmitch-tinylytics.php:237
 msgid "Settings Saved"
 msgstr ""
 
-#: jmitch-tinylytics.php:331
+#: jmitch-tinylytics.php:326
 msgid "Settings"
 msgstr ""
 
-#: jmitch-tinylytics.php:332
+#: jmitch-tinylytics.php:327
 msgid "Donate"
-msgstr ""
-
-#: admin-shortcodes.php:14
-msgid "Shortcodes"
-msgstr ""
-
-#: admin-shortcodes.php:16
-msgid "comes comes with a variety of shortcodes which can be embedded directly in a post, page, or theme block to reduce the need for extensive HTML customizations"
-msgstr ""
-
-#: admin-shortcodes.php:19
-msgid "Displays an interactive button to track "kudos" given by readers. Best used directly in posts and pages"
-msgstr ""
-
-#: admin-shortcodes.php:20
-msgid "Displays a count of page loads of the page viewed. Best used directly in posts and pages"
-msgstr ""
-
-#: admin-shortcodes.php:21
-msgid "Displays both overall site hits and uptime (Note: a Tinylytics subscription is required to display uptime). Best used in the footer of your site"
-msgstr ""
-
-#: admin-shortcodes.php:22
-msgid "Displays a random link to a Tinylytics webring site. Enabling the \"Display webring avatars?\" option will include the avatar if the site has one. Best used in the footer of your site"
-msgstr ""
-
-#: admin-shortcodes.php:23
-msgid "Displays flags from all the countries of site visitors. Best used in the footer of your site"
-msgstr ""
-
-#: admin-shortcodes.php:26
-msgid "Learn how to use the"
-msgstr ""
-
-#: admin-shortcodes.php:26
-msgid "Shortcode Block"
-msgstr ""
-
-#: admin-shortcodes.php:26
-msgid "in your theme. More information about"
-msgstr ""
-
-#: admin-shortcodes.php:26
-msgid "options can be found in the"
-msgstr ""
-
-#: admin-shortcodes.php:26
-msgid "documentation"
-msgstr ""
-
-#: admin-support.php:14
-msgid "Enjoying My Tinylytics Plugin?"
-msgstr ""
-
-#: admin-support.php:16
-msgid "I enjoy offering this plugin to the WordPress community for free. However, if you find it useful, consider supporting its development. A small donation can make a big difference helping to improve and enhance the plugin for everyone. Your generosity ensures continuous updates and new features"
-msgstr ""
-
-#: admin-support.php:17
-msgid "Making a donation gets you priority support if you need it"
-msgstr ""
-
-#: admin-support.php:18
-msgid "Support My Tinylytics Plugin"
-msgstr ""
-
-#: user-shortcodes.php:46
-msgid "Web Ring"
-msgstr ""
-
-#: user-shortcodes.php:48
-msgid "Web Ring"
-msgstr ""
-
-#: user-shortcodes.php:77
-msgid "My Stats"
 msgstr ""
