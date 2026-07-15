@@ -7,10 +7,10 @@
  * Author: Jim Mitchell
  * Author URI: https://jimmitchell.org
  * Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
- * Requires at least: 4.6
- * Test up to: 6.7
- * Version: 1.1.4
- * Requires PHP: 5.6.20
+ * Requires at least: 6.3
+ * Tested up to: 6.8
+ * Version: 1.1.5
+ * Requires PHP: 7.4
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
  * License: GPL-2.0-or-later
@@ -35,15 +35,11 @@
 
 if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.1.4' );
+define( 'TINYLYTICS__VERSION', '1.1.5' );
 
 // Hook functions into WordPress
-add_action( 'init',         'jmitch_tinylytics_start_session', 1 );
-add_action( 'init',         'jmitch_tinylytics_load_i18n' );
 add_action( 'admin_init',   'jmitch_tinylytics_register_settings' );
 add_action( 'admin_menu',   'jmitch_tinylytics_add_menu_page' );
-add_action( 'wp_logout',    'jmitch_tinylytics_end_session' );
-add_action( 'wp_login',     'jmitch_tinylytics_end_session' );
 
 // Register the settings
 function jmitch_tinylytics_register_settings() {
@@ -266,41 +262,37 @@ function jmitch_tinylytics_output_script() {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
 
-    if ( $options && esc_attr( $options['site_id'] ) !== '' ) {
+    if ( ! empty( $options['site_id'] ) ) {
 
-        $ignore = false;
-        if( isset( $_SESSION['isAdmin'] ) && $options['ignore_hits'] === true ) {
-            $ignore = sanitize_key( $_SESSION['isAdmin'] );
-        }
-    
-        $site_id = esc_attr( $options['site_id'] ?? '' );
-        $hits = $options['display_hits'];
-        $stats = $options['display_stats'];
-        $uptime = $options['display_uptime'];
-        $kudos = $options['display_kudos'];
-        $kudos_label = esc_attr( $options['kudos_label'] ?? '' );
-        $webring = $options['display_webring'];
-        $webring_label = esc_attr( $options['webring_label'] ?? '' );
-        $avatars = $options['display_avatars'];
-        $flags = $options['display_flags'];
-        
+        $ignore = ! empty( $options['ignore_hits'] ) && current_user_can( 'manage_options' );
+
+        $site_id = rawurlencode( $options['site_id'] );
+        $hits = ! empty( $options['display_hits'] );
+        $stats = ! empty( $options['display_stats'] );
+        $uptime = ! empty( $options['display_uptime'] );
+        $kudos = ! empty( $options['display_kudos'] );
+        $kudos_label = $options['kudos_label'] ?? '';
+        $webring = ! empty( $options['display_webring'] );
+        $avatars = ! empty( $options['display_avatars'] );
+        $flags = ! empty( $options['display_flags'] );
+
         $script_url = "https://tinylytics.app/embed/{$site_id}.js?";
         $script_url .= $ignore ? 'ignore&' : '';
         $script_url .= $hits ? 'hits&' : '';
         $script_url .= $stats ? 'publicstats&' : '';
         $script_url .= $uptime ? 'uptime&' : '';
         $script_url .= $kudos && !$kudos_label ? 'kudos&' : '';
-        $script_url .= $kudos && $kudos_label ? 'kudos=' . $kudos_label . '&' : '';
+        $script_url .= $kudos && $kudos_label ? 'kudos=' . rawurlencode( $kudos_label ) . '&' : '';
         $script_url .= $webring && !$avatars ? 'webring&' : '';
         $script_url .= $webring && $avatars ? 'webring=avatars&' : '';
         $script_url .= $flags ? 'countries&' : '';
         $script_url = rtrim( $script_url, '&?' );
-        
+
         wp_enqueue_script(
             'jmitch-tinylytics',
             esc_url_raw( $script_url ),
             array(),
-            TINYLYTICS__VERSION,
+            null, // no cache-busting query arg on the remote Tinylytics URL
             array(
                 'strategy'  => 'defer',
                 'in_footer' => true
@@ -339,47 +331,6 @@ function jmitch_tinylytics_settings_link( $links ) {
 	return $links;
 }
 add_filter( 'plugin_action_links_jmitch-tinylytics/jmitch-tinylytics.php', 'jmitch_tinylytics_settings_link' );
-
-
-function jmitch_tinylytics_load_i18n() {
-			
-    $domain = 'jmitch-tinylytics';
-    $locale = apply_filters( 'jmitch_tinylytics_locale', get_locale(), $domain );
-    $dir    = trailingslashit( WP_LANG_DIR );
-    $file   = $domain . '-' . $locale . '.mo';
-    $path_1 = $dir . $file;
-    $path_2 = $dir . $domain . '/' . $file;
-    $path_3 = $dir . 'plugins/' . $file;
-    $path_4 = $dir . 'plugins/' . $domain . '/' . $file;
-    $paths = array( $path_1, $path_2, $path_3, $path_4 );
-    
-    foreach ( $paths as $path ) {
-        if ( $loaded = load_textdomain( $domain, $path ) ) {
-            return $loaded;
-        } else {
-            return load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-        }
-    }
-
-}
-
-
-// *** Session management
-function jmitch_tinylytics_start_session() {
-    
-    if( !session_id() ) {
-        session_start( ['read_and_close' => true,] );
-    }
-    if ( current_user_can( 'manage_options' ) ) {
-        $_SESSION[ 'isAdmin' ] = true;
-    }
-    
-}
-function jmitch_tinylytics_end_session() {
-    
-    session_destroy();
-    
-}
 
 
 // *** WordPress shortcodes to use in posts and pages

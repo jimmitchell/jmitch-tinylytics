@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 <h2><?php esc_html_e( 'Shortcodes', 'jmitch-tinylytics' ); ?></h2>
 
-<p>Tinylytics <?php esc_html_e( 'comes comes with a variety of shortcodes which can be embedded directly in a post, page, or theme block to reduce the need for extensive HTML customizations', 'jmitch-tinylytics' ); ?>.</p>
+<p>Tinylytics <?php esc_html_e( 'comes with a variety of shortcodes which can be embedded directly in a post, page, or theme block to reduce the need for extensive HTML customizations', 'jmitch-tinylytics' ); ?>.</p>
 
 <table class="form-table" role="presentation" style="width:100%;">
     <tr><th style="width:20%;">[tinykudos]</th><td><?php esc_html_e( 'Displays an interactive button to track "kudos" given by readers. Best used directly in posts and pages', 'jmitch-tinylytics' ); ?>.</td></tr>
