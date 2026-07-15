@@ -8,8 +8,8 @@
  * Author URI: https://jimmitchell.org
  * Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
  * Requires at least: 6.3
- * Tested up to: 6.8
- * Version: 1.1.5
+ * Tested up to: 7.0
+ * Version: 1.2.0
  * Requires PHP: 7.4
  * Text Domain: jmitch-tinylytics
  * Domain Path: /languages
@@ -35,64 +35,124 @@
 
 if ( ! defined( 'ABSPATH' )) die();
 
-define( 'TINYLYTICS__VERSION', '1.1.5' );
+define( 'TINYLYTICS__VERSION', '1.2.0' );
 
 // Hook functions into WordPress
 add_action( 'admin_init',   'jmitch_tinylytics_register_settings' );
 add_action( 'admin_menu',   'jmitch_tinylytics_add_menu_page' );
 
+// The plugin's settings fields, keyed by option name
+function jmitch_tinylytics_get_fields() {
+
+    return array(
+        'site_id' => array(
+            'type'        => 'text',
+            'section'     => 'jmitch_tinylytics_general_section',
+            'label'       => __( 'Site ID', 'jmitch-tinylytics' ),
+            'placeholder' => __( 'Enter your Tinylytics unique site id...', 'jmitch-tinylytics' ),
+        ),
+        'ignore_hits' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Ignore admin hits?', 'jmitch-tinylytics' ),
+        ),
+        'display_hits' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display visitor hits?', 'jmitch-tinylytics' ),
+        ),
+        'display_stats' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Link to your public stats?', 'jmitch-tinylytics' ),
+        ),
+        'stats_label' => array(
+            'type'        => 'text',
+            'section'     => 'jmitch_tinylytics_options_section',
+            'label'       => __( 'Public stats label', 'jmitch-tinylytics' ),
+            'placeholder' => __( 'Add a custom public stats label', 'jmitch-tinylytics' ),
+        ),
+        'display_uptime' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display uptime?', 'jmitch-tinylytics' ),
+        ),
+        'display_kudos' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display Kudos?', 'jmitch-tinylytics' ),
+        ),
+        'kudos_label' => array(
+            'type'        => 'text',
+            'section'     => 'jmitch_tinylytics_options_section',
+            'label'       => __( 'Kudos label', 'jmitch-tinylytics' ),
+            'placeholder' => __( 'Enter any combination of text or emoji 👋', 'jmitch-tinylytics' ),
+        ),
+        'display_webring' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display webring?', 'jmitch-tinylytics' ),
+        ),
+        'webring_label' => array(
+            'type'        => 'text',
+            'section'     => 'jmitch_tinylytics_options_section',
+            'label'       => __( 'Webring label', 'jmitch-tinylytics' ),
+            'placeholder' => __( 'Enter any combination of text or emoji 🕸️💍', 'jmitch-tinylytics' ),
+        ),
+        'display_avatars' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display webring avatars?', 'jmitch-tinylytics' ),
+        ),
+        'display_flags' => array(
+            'type'    => 'checkbox',
+            'section' => 'jmitch_tinylytics_options_section',
+            'label'   => __( 'Display country flags?', 'jmitch-tinylytics' ),
+        ),
+    );
+
+}
+
 // Register the settings
 function jmitch_tinylytics_register_settings() {
 
-    register_setting( 'jmitch_tinylytics_settings_group', 'jmitch_tinylytics_settings', 'jmitch_tinylytics_sanitize_options' );
-    
+    register_setting(
+        'jmitch_tinylytics_settings_group',
+        'jmitch_tinylytics_settings',
+        array( 'sanitize_callback' => 'jmitch_tinylytics_sanitize_options' )
+    );
+
     add_settings_section( 'jmitch_tinylytics_general_section', esc_html__( 'General Settings','jmitch-tinylytics' ), 'jmitch_tinylytics_general_section_callback', 'jmitch-tinylytics' );
     add_settings_section( 'jmitch_tinylytics_options_section', esc_html__( 'Tinylytics Options','jmitch-tinylytics' ), 'jmitch_tinylytics_options_section_callback', 'jmitch-tinylytics' );
-    
-    add_settings_field( 'site_id', esc_html__( 'Site ID','jmitch-tinylytics' ), 'jmitch_tinylytics_site_id_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_general_section' );
-    add_settings_field( 'ignore_hits', esc_html__( 'Ignore admin hits?','jmitch-tinylytics' ), 'jmitch_tinylytics_ignore_hits_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_hits', esc_html__( 'Display visitor hits?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_hits_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_stats', esc_html__( 'Link to your public stats?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_stats_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'stats_label', esc_html__( 'Public stats label','jmitch-tinylytics' ), 'jmitch_tinylytics_stats_label_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_uptime', esc_html__( 'Display uptime?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_uptime_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_kudos', esc_html__( 'Display Kudos?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_kudos_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'kudos_label', esc_html__( 'Kudos label','jmitch-tinylytics' ), 'jmitch_tinylytics_kudos_label_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_webring', esc_html__( 'Display webring?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_webring_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'webring_label', esc_html__( 'Webring label','jmitch-tinylytics' ), 'jmitch_tinylytics_webring_label_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_avatars', esc_html__( 'Display webring avatars?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_avatars_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
-    add_settings_field( 'display_flags', esc_html__( 'Display country flags?','jmitch-tinylytics' ), 'jmitch_tinylytics_display_flags_callback', 'jmitch-tinylytics', 'jmitch_tinylytics_options_section' );
+
+    foreach ( jmitch_tinylytics_get_fields() as $key => $field ) {
+        add_settings_field(
+            $key,
+            esc_html( $field['label'] ),
+            'text' === $field['type'] ? 'jmitch_tinylytics_render_text_field' : 'jmitch_tinylytics_render_checkbox',
+            'jmitch-tinylytics',
+            $field['section'],
+            array(
+                'label_for'   => $key,
+                'placeholder' => $field['placeholder'] ?? '',
+            )
+        );
+    }
 
 }
 
 // Sanitize options
-function jmitch_tinylytics_sanitize_options($input) {
+function jmitch_tinylytics_sanitize_options( $input ) {
 
     $sanitized_input = array();
 
-    if ( isset( $input['site_id'] ) ) {
-        $sanitized_input['site_id'] = sanitize_text_field( $input['site_id'] );
+    foreach ( jmitch_tinylytics_get_fields() as $key => $field ) {
+        if ( 'text' === $field['type'] ) {
+            $sanitized_input[ $key ] = sanitize_text_field( $input[ $key ] ?? '' );
+        } else {
+            $sanitized_input[ $key ] = isset( $input[ $key ] );
+        }
     }
-
-    if ( isset( $input['stats_label'] ) ) {
-        $sanitized_input['stats_label'] = sanitize_text_field( $input['stats_label'] );
-    }
-    
-    if ( isset( $input['kudos_label'] ) ) {
-        $sanitized_input['kudos_label'] = sanitize_text_field( $input['kudos_label'] );
-    }
-    
-    if ( isset( $input['webring_label'] ) ) {
-        $sanitized_input['webring_label'] = sanitize_text_field( $input['webring_label'] );
-    }
-
-    $sanitized_input['ignore_hits'] = isset( $input['ignore_hits'] ) ? true : false;
-    $sanitized_input['display_hits'] = isset( $input['display_hits'] ) ? true : false;
-    $sanitized_input['display_stats'] = isset( $input['display_stats'] ) ? true : false;
-    $sanitized_input['display_uptime'] = isset( $input['display_uptime'] ) ? true : false;
-    $sanitized_input['display_kudos'] = isset( $input['display_kudos'] ) ? true : false;
-    $sanitized_input['display_webring'] = isset( $input['display_webring'] ) ? true : false;
-    $sanitized_input['display_avatars'] = isset( $input['display_avatars'] ) ? true : false;
-    $sanitized_input['display_flags'] = isset( $input['display_flags'] ) ? true : false;
 
     return $sanitized_input;
 
@@ -101,116 +161,67 @@ function jmitch_tinylytics_sanitize_options($input) {
 // Section callbacks
 function jmitch_tinylytics_general_section_callback() {
 
-    echo '<p class="section-note">' . esc_html__( 'Your unique site id can be found on your','jmitch-tinylytics' ) . ' <a href="https://tinylytics.app" target="_blank">Tinylytics</a> '. esc_html__( 'site page','jmitch-tinylytics') .'.</p>';
+    printf(
+        '<p class="section-note">%s</p>',
+        sprintf(
+            /* translators: %s: link to the Tinylytics website */
+            esc_html__( 'Your unique site id can be found on your %s site page.', 'jmitch-tinylytics' ),
+            '<a href="https://tinylytics.app" target="_blank">Tinylytics</a>'
+        )
+    );
 
 }
 
 function jmitch_tinylytics_options_section_callback() {
 
-    echo '<p class="section-note">' . esc_html__( 'These settings enable the various tracking features of','jmitch-tinylytics' ) . ' <a href="https://tinylytics.app/docs" target="_blank">Tinylytics</a>.</p>';
+    printf(
+        '<p class="section-note">%s</p>',
+        sprintf(
+            /* translators: %s: link to the Tinylytics documentation */
+            esc_html__( 'These settings enable the various tracking features of %s.', 'jmitch-tinylytics' ),
+            '<a href="https://tinylytics.app/docs" target="_blank">Tinylytics</a>'
+        )
+    );
 
 }
 
-// Site ID callback
-function jmitch_tinylytics_site_id_callback() {
+// Field callbacks
+function jmitch_tinylytics_render_text_field( $args ) {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="site_id" size="50" name="jmitch_tinylytics_settings[site_id]" placeholder="' . esc_html__( 'Enter your Tinylytics unique site id...','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['site_id'] ?? '' ) . '" />';
+    printf(
+        '<input type="text" id="%1$s" size="50" name="jmitch_tinylytics_settings[%1$s]" placeholder="%2$s" value="%3$s" />',
+        esc_attr( $args['label_for'] ),
+        esc_attr( $args['placeholder'] ),
+        esc_attr( $options[ $args['label_for'] ] ?? '' )
+    );
 
 }
 
-// Public stats label callback
-function jmitch_tinylytics_stats_label_callback() {
+function jmitch_tinylytics_render_checkbox( $args ) {
 
     $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="stats_label" size="50" name="jmitch_tinylytics_settings[stats_label]" placeholder="' . esc_html__( 'Add a custom public stats label','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['stats_label'] ?? '' ) . '" />';
-
-}
-
-// Kudos label callback
-function jmitch_tinylytics_kudos_label_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="kudos_label" size="50" name="jmitch_tinylytics_settings[kudos_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 👋','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['kudos_label'] ?? '' ) . '" />';
-
-}
-
-// Webring label callback
-function jmitch_tinylytics_webring_label_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="text" id="webring_label" size="50" name="jmitch_tinylytics_settings[webring_label]" placeholder="' . esc_html__( 'Enter any combination of text or emoji 🕸️💍','jmitch-tinylytics' ) . '" value="' . esc_attr( $options['webring_label'] ?? '' ) . '" />';
-
-}
-
-// Ignore Hits callback
-function jmitch_tinylytics_ignore_hits_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="ignore_hits" name="jmitch_tinylytics_settings[ignore_hits]" ' . checked( true, $options['ignore_hits'] ?? false, false ) . ' />';
-
-}
-
-// Display Hits callback
-function jmitch_tinylytics_display_hits_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_hits" name="jmitch_tinylytics_settings[display_hits]" ' . checked( true, $options['display_hits'] ?? false, false ) . ' />';
-
-}
-
-// Display Stats callback
-function jmitch_tinylytics_display_stats_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_stats" name="jmitch_tinylytics_settings[display_stats]" ' . checked( true, $options['display_stats'] ?? false, false ) . ' />';
-
-}
-
-// Display Uptime callback
-function jmitch_tinylytics_display_uptime_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_uptime" name="jmitch_tinylytics_settings[display_uptime]" ' . checked( true, $options['display_uptime'] ?? false, false ) . ' />';
-
-}
-
-// Display Kudos callback
-function jmitch_tinylytics_display_kudos_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_kudos" name="jmitch_tinylytics_settings[display_kudos]" ' . checked( true, $options['display_kudos'] ?? false, false ) . ' />';
-
-}
-
-// Display Webring callback
-function jmitch_tinylytics_display_webring_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_webring" name="jmitch_tinylytics_settings[display_webring]" ' . checked( true, $options['display_webring'] ?? false, false ) . ' />';
-
-}
-
-// Display Avatars callback
-function jmitch_tinylytics_display_avatars_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_avatars" name="jmitch_tinylytics_settings[display_avatars]" ' . checked( true, $options['display_avatars'] ?? false, false ) . ' />';
-
-}
-
-// Display Flags callback
-function jmitch_tinylytics_display_flags_callback() {
-
-    $options = get_option( 'jmitch_tinylytics_settings' );
-    echo '<input type="checkbox" id="display_flags" name="jmitch_tinylytics_settings[display_flags]" ' . checked( true, $options['display_flags'] ?? false, false ) . ' />';
+    printf(
+        '<input type="checkbox" id="%1$s" name="jmitch_tinylytics_settings[%1$s]" %2$s />',
+        esc_attr( $args['label_for'] ),
+        checked( true, ! empty( $options[ $args['label_for'] ] ), false )
+    );
 
 }
 
 // Add menu page with custom icon
 function jmitch_tinylytics_add_menu_page() {
-    
-    add_menu_page( 'Tinylytics', 'Tinylytics', 'manage_options', 'jmitch-tinylytics', 'jmitch_tinylytics_settings_page', 'dashicons-chart-bar', 89 );
+
+    $hook = add_menu_page( 'Tinylytics', 'Tinylytics', 'manage_options', 'jmitch-tinylytics', 'jmitch_tinylytics_settings_page', 'dashicons-chart-bar', 89 );
+
+    // Load the admin stylesheet only on the plugin's own settings page
+    add_action( 'admin_print_styles-' . $hook, 'jmitch_tinylytics_admin_styles' );
+
+}
+
+function jmitch_tinylytics_admin_styles() {
+
+    wp_enqueue_style( 'jmitch-tinylytics-admin', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), TINYLYTICS__VERSION, 'all' );
 
 }
 
@@ -235,23 +246,27 @@ function jmitch_tinylytics_settings_page() {
     <div class="wrap">
         <h1>Tinylytics</h1>
 
+        <?php
+        $settings_url  = admin_url( 'admin.php?page=jmitch-tinylytics' );
+        $shortcode_url = add_query_arg( 'tab', 'shortcode', $settings_url );
+        ?>
         <nav class="nav-tab-wrapper">
-            <a href="?page=jmitch-tinylytics" class="nav-tab <?php if($tab === null):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'General Settings', 'jmitch-tinylytics' ); ?></a>
-            <a href="?page=jmitch-tinylytics&tab=shortcode" class="nav-tab <?php if($tab === 'shortcode'):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'Shortcodes', 'jmitch-tinylytics' ); ?></a>
+            <a href="<?php echo esc_url( $settings_url ); ?>" class="nav-tab <?php if($tab === null):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'General Settings', 'jmitch-tinylytics' ); ?></a>
+            <a href="<?php echo esc_url( $shortcode_url ); ?>" class="nav-tab <?php if($tab === 'shortcode'):?>nav-tab-active<?php endif; ?>"><?php esc_html_e( 'Shortcodes', 'jmitch-tinylytics' ); ?></a>
         </nav>
         <div class="tab-content">
             <div class="admin-left">
             <?php switch( $tab ) :
                 case 'shortcode':
-                    include plugin_dir_path( __FILE__ ) . '/inc/admin-shortcodes.php';
+                    include plugin_dir_path( __FILE__ ) . 'inc/admin-shortcodes.php';
                     break;
                 default:
-                    include plugin_dir_path( __FILE__ ) . '/inc/admin-settings.php';
+                    include plugin_dir_path( __FILE__ ) . 'inc/admin-settings.php';
                     break;
             endswitch; ?>
             </div>
             <div class="admin-right">
-            <?php include plugin_dir_path( __FILE__ ) . '/inc/admin-support.php'; ?>
+            <?php include plugin_dir_path( __FILE__ ) . 'inc/admin-support.php'; ?>
             </div>
         </div>
     </div>
@@ -292,7 +307,7 @@ function jmitch_tinylytics_output_script() {
             'jmitch-tinylytics',
             esc_url_raw( $script_url ),
             array(),
-            null, // no cache-busting query arg on the remote Tinylytics URL
+            null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- remote third-party script; a version query arg cannot bust Tinylytics' cache and pollutes their URL
             array(
                 'strategy'  => 'defer',
                 'in_footer' => true
@@ -300,26 +315,14 @@ function jmitch_tinylytics_output_script() {
         );
     }
 }
-add_action( 'wp_footer', 'jmitch_tinylytics_output_script' );
-
-
-// *** Enqueue user scripts
-function jmitch_tinylytics_user_scripts() {
-	$plugin_url = plugin_dir_url( __FILE__ );
-	wp_enqueue_style( 'style',  $plugin_url . "css/style.css", array(), TINYLYTICS__VERSION, 'all' );
-}
-add_action( 'admin_print_styles', 'jmitch_tinylytics_user_scripts' );
+add_action( 'wp_enqueue_scripts', 'jmitch_tinylytics_output_script' );
 
 
 // *** Add a settings link to the plugin overview page for easy access
 function jmitch_tinylytics_settings_link( $links ) {
 
-	$url = esc_url( add_query_arg(
-		'page',
-		'jmitch-tinylytics',
-		get_admin_url() . 'admin.php'
-	) );
-	
+	$url = esc_url( admin_url( 'admin.php?page=jmitch-tinylytics' ) );
+
     $settings_link = '<a href="'. $url .'">' . esc_html__( 'Settings', 'jmitch-tinylytics' ) . '</a>';
     $donate_link = '<a href="https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR" target="_blank">' . esc_html__( 'Donate', 'jmitch-tinylytics' ) . '</a>';
 	
@@ -334,4 +337,4 @@ add_filter( 'plugin_action_links_jmitch-tinylytics/jmitch-tinylytics.php', 'jmit
 
 
 // *** WordPress shortcodes to use in posts and pages
-include plugin_dir_path( __FILE__ ) . '/inc/user-shortcodes.php';
+include plugin_dir_path( __FILE__ ) . 'inc/user-shortcodes.php';

@@ -43,9 +43,9 @@ function jmitch_tinylytics_webring_function() {
 	if ( $webring ) {
 		$show_avatar = $avatars ? '<img class="tinylytics_webring_avatar" src="" style="display: none"/>' : '';
 		if ( $webring_label === '' ) {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. esc_html__( 'Web Ring', 'jmitch-tinylytics' ) . '">🕸️' . $show_avatar . '💍</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. esc_attr__( 'Web Ring', 'jmitch-tinylytics' ) . '">🕸️' . $show_avatar . '💍</a></span>';
 		} else {
-			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. esc_html__( 'Web Ring', 'jmitch-tinylytics' ) . '">'. $show_avatar . esc_html( $webring_label ) . '</a></span>';
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics '. esc_attr__( 'Web Ring', 'jmitch-tinylytics' ) . '">'. $show_avatar . esc_html( $webring_label ) . '</a></span>';
 		}
 	}
 	return $output;

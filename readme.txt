@@ -8,9 +8,9 @@ Author: Jim Mitchell
 Author URI: https://jimmitchell.org/
 Donate link: https://donate.stripe.com/9AQ8Ab6Yr8Y67cYdQR
 Requires at least: 6.3
-Tested up to: 6.8
-Stable tag: 1.1.5
-Version:    1.1.5
+Tested up to: 7.0
+Stable tag: 1.2.0
+Version:    1.2.0
 Requires PHP: 7.4
 Text Domain: jmitch-tinylytics
 Domain Path: /languages
@@ -136,6 +136,14 @@ To upgrade Tinylytics, just click "Update" from the Plugins screen and let WordP
 *Thank you to everyone who shares feedback for Tinylytics!*
 
 If you like Tinylytics, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/jmitch-tinylytics/reviews/?rate=5#new-post). It helps keep development and support going strong. Thank you!
+
+**Version 1.2.0 (07-14-2026)**
+
+* Refactor the settings screen to use shared, data-driven field rendering. Field labels are now clickable and properly associated with their inputs for accessibility.
+* Load the plugin's admin stylesheet only on the Tinylytics settings page instead of every admin screen.
+* Enqueue the tracking script on the standard wp_enqueue_scripts hook for better compatibility with caching and optimization plugins.
+* Rework translatable strings to use full sentences with placeholders so the plugin can be properly translated.
+* Build admin tab and settings links with WordPress URL functions.
 
 **Version 1.1.5 (07-14-2026)**
 
